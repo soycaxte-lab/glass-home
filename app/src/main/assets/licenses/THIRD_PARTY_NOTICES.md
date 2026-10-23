@@ -1,0 +1,10 @@
+# Componentes y fuentes externas
+
+- **Outfit**: Copyright 2021 The Outfit Project Authors. La fuente `app/src/main/res/font/outfit.ttf` se distribuye bajo SIL Open Font License 1.1; texto completo en [Outfit-OFL.txt](Outfit-OFL.txt).
+- **AndroidX RecyclerView**: biblioteca de AndroidX distribuida bajo Apache License 2.0. [Proyecto AndroidX](https://github.com/androidx/androidx).
+- **Gradle Wrapper**: herramienta de Gradle distribuida bajo Apache License 2.0. [Proyecto Gradle](https://github.com/gradle/gradle).
+- **Calendarios**: suscripciones públicas iCalendar ofrecidas por [Fixtur.es](https://fixtur.es/). El acceso a sus calendarios no convierte sus datos en código MIT de este proyecto. Su disponibilidad y sus condiciones dependen del proveedor.
+- **Escudos y bandera del panel**: obtenidos de las páginas de equipos y selección de Fixtur.es. Las marcas, escudos y nombres pertenecen a sus respectivos titulares y no se conceden bajo la licencia MIT del código. Se incluyen como identificadores de los equipos; no se afirma afiliación ni patrocinio.
+- **Iconos de las apps**: se leen de las aplicaciones ya instaladas en el dispositivo. El proyecto no distribuye las aplicaciones de Netflix, Prime Video, YouTube ni TEVEO.
+
+La interfaz está inspirada en paneles de cristal y navegación de televisión. No utiliza componentes de Apple ni afirma ser un producto de Apple, Xiaomi, Google, FotMob o los equipos mencionados.
