@@ -1,0 +1,5 @@
+<resources>
+ <integer name="columns">4</integer>
+ <string-array name="dock_apps"><item>com.netflix.ninja</item><item>com.teveo.tv.v04</item><item>com.amazon.amazonvideo.livingroom</item><item>com.google.android.youtube.tv</item></string-array>
+ <color name="wallpaper">#000000</color>
+</resources>
