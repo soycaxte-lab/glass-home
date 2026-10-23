@@ -9,7 +9,7 @@
 Abre esta carpeta como proyecto en Android Studio y deja que detecte el SDK. En terminal puedes configurar `ANDROID_HOME`, o crear un `local.properties` privado con `sdk.dir=RUTA_DEL_SDK`. No subas ese archivo.
 
 ```sh
-./gradlew assembleDebug lintDebug --no-daemon
+bash ./gradlew assembleDebug lintDebug --no-daemon
 ```
 
 En Windows utiliza `gradlew.bat`. El APK de depuración queda en `app/build/outputs/apk/debug/app-debug.apk`. Android genera una clave de depuración local; esta no coincide necesariamente con la distribución oficial ni con la de otro desarrollador.
@@ -47,7 +47,7 @@ Las claves privadas **no están en el repositorio**. Para producir tu propia dis
 - `GLASSHOME_KEY_PASSWORD`.
 
 ```sh
-./gradlew assembleRelease lintRelease --no-daemon
+bash ./gradlew assembleRelease lintRelease --no-daemon
 ```
 
 Sin esas variables, `assembleRelease` puede generar un APK sin firma que no es instalable directamente. Mantén la misma clave para futuras actualizaciones de tu distribución. Los builds de CI son de depuración y sirven para validar código; no sustituyen al APK oficial para actualizar una instalación existente.
