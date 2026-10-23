@@ -6,6 +6,8 @@ Un launcher para **Android TV y Google TV** con fondo azul/violeta, dock flotant
 
 **[Copiar el prompt completo en español para tu asistente](docs/PROMPT-INSTALACION-ES.md)**. Incluye la instalación de esta interfaz, configuración, pruebas con el control y restauración. Abre el enlace y copia el bloque completo.
 
+**¿Es tu primera instalación? [Sigue el tutorial paso a paso con imágenes](docs/TUTORIAL-ES.md)**: preparación, conexión, instalación, uso del control y solución de problemas.
+
 ## Así se ve en la TV
 
 ![Glass Home en el Xiaomi: inicio, dock y fútbol de hoy; historial oculto](docs/screenshots/inicio-hoy-privacidad.png)
