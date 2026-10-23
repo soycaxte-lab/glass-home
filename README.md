@@ -6,9 +6,13 @@ Un launcher para **Android TV y Google TV** con fondo azul/violeta, dock flotant
 
 **[Copiar el prompt completo en español para tu asistente](docs/PROMPT-INSTALACION-ES.md)**. Incluye la instalación de esta interfaz, configuración, pruebas con el control y restauración. Abre el enlace y copia el bloque completo.
 
-![Vista ilustrativa de Glass Home, sin historial personal](docs/preview.svg)
+## Así se ve en la TV
 
-La imagen es una ilustración del diseño. Las tarjetas, aplicaciones y partidos reales dependen de lo que tengas instalado y de los calendarios disponibles.
+![Glass Home en el Xiaomi: inicio, dock y fútbol de hoy; historial oculto](docs/screenshots/inicio-hoy-privacidad.png)
+
+Captura del Xiaomi de referencia, editada con IA para ocultar la fila de historial antes de publicarla. La edición puede introducir pequeñas diferencias visuales; el recuadro de privacidad no forma parte del launcher. Las tarjetas, aplicaciones y partidos dependen de cada dispositivo y de sus proveedores.
+
+**[Ver las capturas de Hoy y Mañana](docs/CAPTURAS.md)** · [Ilustración del diseño](docs/preview.svg)
 
 ## Qué incluye
 
