@@ -4,6 +4,8 @@ Un launcher para **Android TV y Google TV** con fondo azul/violeta, dock flotant
 
 **[Descargar APK 1.3.2](downloads/GlassHome-1.3.2.apk?raw=true)** · [Instalación y restauración](docs/INSTALACION.md) · [Compilar y personalizar](docs/DESARROLLO.md)
 
+**[Copiar el prompt completo en español para tu asistente](docs/PROMPT-INSTALACION-ES.md)**. Incluye la instalación de esta interfaz, configuración, pruebas con el control y restauración. Abre el enlace y copia el bloque completo.
+
 ![Vista ilustrativa de Glass Home, sin historial personal](docs/preview.svg)
 
 La imagen es una ilustración del diseño. Las tarjetas, aplicaciones y partidos reales dependen de lo que tengas instalado y de los calendarios disponibles.
