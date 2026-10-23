@@ -1,0 +1,30 @@
+name: Android build
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Install Android SDK packages
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - name: Compile and lint
+        run: bash ./gradlew assembleDebug lintDebug --no-daemon
+      - name: Check iCalendar parsing
+        run: |
+          mkdir -p build/fixture-checks
+          javac -encoding UTF-8 -d build/fixture-checks app/src/main/java/local/glasshome/FootballFixtures.java checks/FootballFixturesCheck.java
+          java -cp build/fixture-checks local.glasshome.FootballFixturesCheck
