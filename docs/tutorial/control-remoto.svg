@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa del control remoto de Glass Home</title>
+  <desc id="desc">Del dock sube a Continuar viendo, después al fútbol. Desde el dock baja a la cuadrícula. En fútbol derecha desde Mañana lleva a Wi-Fi y Ajustes. Atrás dentro del launcher vuelve al dock.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#1f1b46"/><stop offset="1" stop-color="#103b53"/></linearGradient></defs>
+  <rect width="1200" height="700" rx="28" fill="url(#bg)"/>
+  <g font-family="Arial, sans-serif" text-anchor="middle" fill="#f1f5ff">
+    <text x="600" y="58" font-size="30" font-weight="700">Muévete con las flechas del control</text>
+    <text x="600" y="94" font-size="20" fill="#c4d0e6">Mapa de navegación · No es una captura de la interfaz</text>
+    <g fill="#ffffff" fill-opacity=".08" stroke="#a7b8d5">
+      <rect x="270" y="128" width="480" height="94" rx="20"/>
+      <rect x="810" y="128" width="332" height="94" rx="20"/>
+      <rect x="270" y="286" width="480" height="82" rx="20"/>
+      <rect x="210" y="432" width="600" height="92" rx="24"/>
+      <rect x="270" y="586" width="480" height="70" rx="20"/>
+    </g>
+    <text x="510" y="166" font-size="25" font-weight="700">Fútbol: Hoy / Mañana</text>
+    <text x="510" y="199" font-size="19" fill="#c4d0e6">← → cambia de pestaña</text>
+    <text x="976" y="169" font-size="25">Wi-Fi → Ajustes</text>
+    <text x="976" y="200" font-size="18" fill="#c4d0e6">→ desde Mañana</text>
+    <text x="510" y="337" font-size="26" font-weight="700">Continuar viendo</text>
+    <text x="510" y="467" font-size="25" font-weight="700">Dock de aplicaciones</text>
+    <text x="510" y="501" font-size="19" fill="#c4d0e6">Netflix · TEVEO · Prime Video · YouTube</text>
+    <text x="510" y="630" font-size="25">Todas las aplicaciones</text>
+    <text x="495" y="264" font-size="32">↑</text><text x="495" y="411" font-size="32">↑</text>
+    <text x="510" y="566" font-size="32">↓</text><text x="780" y="183" font-size="32">→</text>
+    <text x="997" y="333" font-size="24">← → Seleccionar</text>
+    <text x="997" y="380" font-size="24">OK Abrir</text>
+    <text x="997" y="454" font-size="23">Atrás → dock</text>
+    <text x="997" y="488" font-size="18" fill="#c4d0e6">dentro del launcher</text>
+  </g>
+</svg>
