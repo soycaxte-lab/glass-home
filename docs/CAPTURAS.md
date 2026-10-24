@@ -1,25 +1,23 @@
-# Capturas del launcher en la TV
+# Capturas de Glass Home 1.4.1 en la TV
 
-Estas vistas proceden de capturas realizadas en el Xiaomi MiTV-AFMU0 durante la comprobación de la interfaz compacta 1.3.2. Muestran el fondo azul/violeta, el dock de cuatro apps y el fútbol centrado entre el reloj y Wi-Fi/Ajustes.
-
-**Privacidad:** se utilizó la herramienta de edición de imágenes con IA para cubrir toda la fila de tarjetas de Continuar viendo, incluidos títulos, imágenes y progreso. Estas son versiones editadas de las capturas, no archivos originales sin modificar; la edición puede introducir pequeñas diferencias visuales. El recuadro «Historial oculto por privacidad» es una redacción editorial y no aparece en el launcher instalado. Los originales con historial no se incluyen en el repositorio.
+Capturas reales del Xiaomi MiTV-AFMU0 con Android 14 y salida 1920 × 1080. Estos archivos se publican sin edición, con autorización del propietario para mostrar también las tarjetas y el progreso de Continuar viendo. No son mockups ni imágenes generadas con IA.
 
 ## Inicio y fútbol de hoy
 
-![Inicio de Glass Home con la pestaña Hoy y el historial oculto](screenshots/inicio-hoy-privacidad.png)
+![Glass Home 1.4.1: recomendación a la izquierda, Continuar viendo a la derecha y fútbol debajo de la fecha](screenshots/inicio-hoy.png)
 
-El panel superior mantiene su tamaño compacto. El dock muestra Netflix → TEVEO → Prime Video → YouTube, con Prime Video enfocado.
+El dock conserva Netflix → TEVEO → Prime Video → YouTube. Los carteles de Continuar viendo se adaptan a la proporción de la imagen enviada por cada app y se ven completos; usa las flechas para recorrer los siguientes.
 
 ## Fútbol de mañana
 
-![Glass Home con Mañana seleccionado y el historial oculto](screenshots/inicio-manana-privacidad.png)
+![Glass Home 1.4.1 con la pestaña Mañana](screenshots/inicio-manana.png)
 
-Esta captura muestra el estado sin partidos para mañana que devolvía el calendario al tomarla. Es una vista histórica; no describe los encuentros de la fecha actual.
+«Sin partidos» refleja el estado del calendario al tomar las capturas; no describe la fecha actual. El fútbol mantiene los cinco favoritos y los horarios de la zona de la TV.
 
-## Cómo interpretar las imágenes
+## Qué puede variar
 
-Las aplicaciones, horarios y tarjetas dependen del dispositivo y de los proveedores. Continuar viendo requiere que cada app publique Android TV Watch Next; instalar el launcher no añade esa integración a TEVEO. Los nombres, iconos y escudos pertenecen a sus titulares, según [los avisos de terceros](../THIRD_PARTY_NOTICES.md).
+La recomendación editorial procede del catálogo público de Apple, no del historial del propietario. Su presencia no garantiza disponibilidad en Netflix, Prime Video o TEVEO ni que esté incluida en una suscripción. Imágenes y metadatos pertenecen a sus titulares.
 
-La instrucción de edición utilizada en ambas imágenes fue: cubrir con un rectángulo opaco toda la fila de tarjetas y el progreso, colocar «Historial oculto por privacidad» y conservar el resto de la interfaz, sin inventar títulos ni funciones.
+Las continuaciones dependen de los registros Android TV Watch Next publicados por cada app. El launcher no añade esa integración a TEVEO ni recupera historiales privados. Aplicaciones instaladas, títulos, reloj, partidos y disponibilidad variarán en cada equipo.
 
-[Descargar e instalar](INSTALACION.md) · [Prompt completo en español](PROMPT-INSTALACION-ES.md) · [Volver a la portada](../README.md)
+[Descargar e instalar](INSTALACION.md) · [Tutorial](TUTORIAL-ES.md) · [Prompt completo](PROMPT-INSTALACION-ES.md) · [Portada](../README.md)

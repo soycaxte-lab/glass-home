@@ -2,15 +2,15 @@
 
 Esta guía te acompaña desde la descarga hasta el primer inicio. No necesitas programar. Para el recorrido manual necesitas un ordenador Windows, acceso a Ajustes en la TV y poder copiar algunos comandos. También puedes pedir ayuda a un asistente con acceso a terminal.
 
-**[Descargar el proyecto completo](https://github.com/soycaxte-lab/glass-home/archive/refs/heads/main.zip)** · [Solo el APK 1.3.2](../downloads/GlassHome-1.3.2.apk?raw=true) · [Copiar el prompt para tu asistente](PROMPT-INSTALACION-ES.md)
+**[Descargar el proyecto completo](https://github.com/soycaxte-lab/glass-home/archive/refs/heads/main.zip)** · [Solo el APK 1.4.1](../downloads/GlassHome-1.4.1.apk?raw=true) · [Copiar el prompt para tu asistente](PROMPT-INSTALACION-ES.md)
 
 ## 1. Mira el resultado y comprueba tu equipo
 
-![Inicio con reloj, fútbol compacto y dock de aplicaciones](screenshots/inicio-hoy-privacidad.png)
+![Inicio con reloj, fútbol compacto y dock de aplicaciones](screenshots/inicio-hoy.png)
 
-*Vista del Xiaomi de referencia, editada con IA para ocultar títulos, imágenes y progreso de Continuar viendo. Puede haber pequeñas diferencias visuales por la edición. El recuadro de privacidad no aparece en la app instalada.*
+*Captura real de la versión 1.4.1 en el Xiaomi de referencia, sin edición. Continuar viendo se muestra con autorización del propietario.*
 
-Glass Home sustituye la pantalla de inicio de **Android TV o Google TV con Android 8.0 o superior**. Conserva el fondo azul/violeta, el dock y el panel de fútbol que ves aquí. Se probó en un Xiaomi MiTV-AFMU0 con Android 14; otros equipos y controles necesitan sus propias comprobaciones.
+Glass Home sustituye la pantalla de inicio de **Android TV o Google TV con Android 8.0 o superior**. Incluye la recomendación grande a la izquierda, Continuar viendo a la derecha, el dock de iconos y el fútbol debajo de la fecha que ves aquí. Se probó en un Xiaomi MiTV-AFMU0 con Android 14; otros equipos y controles necesitan sus propias comprobaciones.
 
 Si tu televisor utiliza **Samsung Tizen o LG webOS**, este APK no se instala directamente. Puedes usar un dispositivo Android TV/Google TV conectado por HDMI. Un Xiaomi TV Box conectado a un Samsung sí puede ejecutar el launcher en el box.
 
@@ -45,7 +45,7 @@ La carpeta debe quedar así:
 ```text
 glass-home-main/
   downloads/
-    GlassHome-1.3.2.apk
+    GlassHome-1.4.1.apk
     SHA256SUMS
   docs/
   scripts/
@@ -58,7 +58,7 @@ glass-home-main/
 Comprueba que estás en la carpeta correcta:
 
 ```powershell
-Test-Path .\downloads\GlassHome-1.3.2.apk
+Test-Path .\downloads\GlassHome-1.4.1.apk
 Test-Path .\platform-tools\adb.exe
 ```
 
@@ -67,11 +67,11 @@ Ambos resultados deben decir `True`. Si alguno dice `False`, corrige la ubicaci�
 Verifica que el APK corresponde a la descarga publicada:
 
 ```powershell
-Get-FileHash .\downloads\GlassHome-1.3.2.apk -Algorithm SHA256
+Get-FileHash .\downloads\GlassHome-1.4.1.apk -Algorithm SHA256
 Get-Content .\downloads\SHA256SUMS
 ```
 
-Compara las dos sumas para `GlassHome-1.3.2.apk`: deben coincidir exactamente, sin importar mayúsculas/minúsculas. Si no coinciden, no instales ese archivo. Vuelve a descargar desde el repositorio. Usa el APK distribuido en `downloads`, no un APK de depuración de GitHub Actions, cuya firma puede ser distinta.
+Compara el hash mostrado por Get-FileHash con la fila correspondiente a `GlassHome-1.4.1.apk`: deben coincidir exactamente, sin importar mayúsculas/minúsculas. Si no coinciden, no instales ese archivo. Vuelve a descargar desde el repositorio. Usa el APK distribuido en `downloads`, no un APK de depuración de GitHub Actions, cuya firma puede ser distinta.
 
 ## 4. Activa la depuración en tu Android TV
 
@@ -137,8 +137,10 @@ Si aparece un error de firma al actualizar, no desinstales a ciegas: podrías pe
 |---|---|
 | Cambiar entre Netflix, TEVEO, Prime Video y YouTube | En el dock, pulsa ← / →; OK abre la app. |
 | Ver todas tus apps | Desde el dock, pulsa ↓. |
-| Entrar a Continuar viendo | Desde el dock, pulsa ↑. |
-| Llegar al fútbol | Desde Continuar viendo, pulsa ↑. |
+| Abrir la recomendación | Desde Netflix en el dock, pulsa ↑; OK muestra detalles. |
+| Entrar a Continuar viendo | Desde las otras apps del dock, pulsa ↑; también puedes pulsar → desde la recomendación. |
+| Cambiar Explorar / Películas / Series | Desde una tarjeta, pulsa ↑; elige con ← / → y aplica con OK. |
+| Llegar al fútbol | Desde las categorías, pulsa ↑; también hay un acceso de balón en la cabecera. |
 | Cambiar Hoy / Mañana | En las pestañas del fútbol, pulsa ← / →. |
 | Entrar en los partidos | Desde una pestaña, pulsa ↓; si no hay partidos, vuelve a Continuar viendo. |
 | Abrir un partido | Selecciónalo y pulsa OK. |
@@ -146,6 +148,8 @@ Si aparece un error de firma al actualizar, no desinstales a ciegas: podrías pe
 | Volver al dock | Pulsa Atrás dentro del launcher. |
 
 ### Continuar viendo
+
+Los carteles conservan su proporción y se muestran completos. Las imágenes horizontales ocupan más ancho: verás menos tarjetas a la vez. Pulsa ← / → para recorrerlas; el launcher no genera carteles verticales artificiales.
 
 Reproduce algo en una app compatible, vuelve al launcher y prueba la tarjeta que publique esa app. Puede pedirte elegir un perfil antes de reanudar. Netflix y Prime Video funcionaron en el equipo original; no todas las versiones o dispositivos publican esas tarjetas.
 
@@ -159,13 +163,19 @@ Si la fila indica que no puede leer los listados y el dispositivo lo permite, el
 
 El instalador ya intenta concederlo. Si el firmware rechaza el permiso, informa de esa limitación en lugar de repetirlo indefinidamente. Un permiso concedido no genera tarjetas si las apps no las publican.
 
+### Recomendaciones y pestañas
+
+Explorar y Películas muestran descubrimiento de películas del catálogo público de Apple en España; Series usa temporadas de series de EE. UU. OK en la recomendación abre sus detalles y el enlace al catálogo. No son recomendaciones basadas en tu historial y no garantizan que el título esté incluido en Netflix, TEVEO o Prime Video. Puede requerir compra o alquiler, y la disponibilidad cambia por región.
+
+El catálogo se guarda durante 24 horas y los fallos se reintentan tras al menos 15 minutos mientras el launcher está visible. Las pestañas también filtran Continuar viendo según el tipo de contenido publicado por cada app. Si el catálogo no carga, comprueba la conexión y vuelve más tarde; no necesitas introducir cuentas ni claves API.
+
 ### Fútbol de hoy y mañana
 
 Los equipos iniciales son Real Madrid, Bayern Múnich, Barcelona, Atlético Nacional y selección de Colombia. Los calendarios proceden de Fixtur.es, con horarios en la zona de la TV, caché de seis horas y sin marcadores en directo. No se extraen datos de FotMob.
 
-![Pestaña Mañana del panel compacto](screenshots/inicio-manana-privacidad.png)
+![Pestaña Mañana del panel compacto](screenshots/inicio-manana.png)
 
-*Captura histórica editada para privacidad. «Sin partidos mañana» era el resultado al tomarla; no es una afirmación sobre la fecha actual.*
+*Captura real histórica sin edición. «Sin partidos mañana» era el resultado al tomarla; no es una afirmación sobre la fecha actual.*
 
 Si no hay partidos publicados, el panel muestra ese estado. Comprueba que la fecha y la zona horaria de la TV sean correctas. Esta versión no incluye una pantalla para elegir equipos; cambiarlos requiere modificar y compilar el código, como explica la [guía de desarrollo](DESARROLLO.md).
 

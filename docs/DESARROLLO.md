@@ -29,11 +29,12 @@ Hay 14 comprobaciones sin red. Cubren medianoche UTC frente al día local, zonas
 ## Personalización
 
 - `app/src/main/res/values/config.xml`: número de slots del dock (4 a 7) y paquetes de apps en orden.
-- `MainActivity.java`: cabecera, fondo, dock y cuadrícula. El fútbol usa una tarjeta centrada de 216 × 104 dp. Wi-Fi y Ajustes quedan a la derecha.
+- `MainActivity.java`: cabecera, fondo, dock y cuadrícula. Fecha centrada arriba y fútbol de 224 × 92 dp debajo; recomendación a la izquierda (54 %) y continuaciones a la derecha (46 %). Wi-Fi y Ajustes quedan a la derecha.
 - `LiquidSurface.java`: superficies de cristal mediante degradados y bordes, sin blur continuo.
 - `FootballFixtures.java`: los cinco identificadores de calendarios y sus etiquetas. Mantén la misma cantidad y el orden entre `SLUGS` y `NAMES` si los cambias; la interfaz actual está configurada para cinco calendarios.
 - `FootballRow.java`: presentación y caché de calendario. Respeta el TTL de la fuente y distingue una descarga fallida de un día sin partidos.
-- `WatchNextRow.java`: lectura de listados compartidos. No implementa la publicación que corresponde a cada servicio de streaming.
+- `RecommendationPanel.java`: feeds públicos de Apple (películas ES, series US), caché de 24 horas, reintentos de 15 minutos, HTTPS con dominios permitidos y detalles con enlace al catálogo. No envía historial ni promete disponibilidad en otros servicios.
+- `WatchNextRow.java`: imágenes completas con FIT_CENTER y ancho calculado según su proporción, limitado al espacio disponible; muestreo hasta 960 × 720. Lectura de listados compartidos. No implementa la publicación que corresponde a cada servicio de streaming.
 
 Los escudos actuales corresponden a los cinco equipos iniciales. Si sustituyes calendarios, actualiza también los identificadores gráficos y sus avisos; no dejes el escudo de otro equipo.
 

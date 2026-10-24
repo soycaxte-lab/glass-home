@@ -2,7 +2,7 @@
 
 Copia **todo el bloque** con el botón de copiar y pégalo en un asistente de programación con acceso a archivos, terminal y red. El asistente necesitará tu ayuda para activar la depuración y probar el control físico. No pegues contraseñas ni códigos de emparejamiento en un chat público.
 
-Este prompt reproduce la distribución **1.3.2-compact** y el proceso del Xiaomi original, adaptando los pasos del sistema al dispositivo de cada persona. La apariencia se conserva usando el APK del proyecto; las apps, tarjetas y partidos dependen de tu equipo y de sus proveedores. No garantiza compatibilidad con todos los firmwares.
+Este prompt reproduce la distribución **1.4.1-artwork** y el proceso del Xiaomi original, adaptando los pasos del sistema al dispositivo de cada persona. La apariencia se conserva usando el APK del proyecto; las apps, tarjetas y partidos dependen de tu equipo y de sus proveedores. No garantiza compatibilidad con todos los firmwares.
 
 ```text
 Quiero que instales y configures Glass Home en mi Android TV o Google TV siguiendo este proceso completo. Trabaja en español y lleva la instalación hasta verificarla en la TV. Puedes descargar el proyecto, inspeccionar el dispositivo, guardar respaldos e instalar el launcher. Pídeme únicamente los datos y las acciones físicas que realmente necesites. Explica de forma breve los avances y cualquier limitación real.
@@ -10,7 +10,7 @@ Quiero que instales y configures Glass Home en mi Android TV o Google TV siguien
 PROYECTO Y ARCHIVOS OFICIALES
 
 - Repositorio: https://github.com/soycaxte-lab/glass-home
-- APK de esta distribución: https://github.com/soycaxte-lab/glass-home/raw/refs/heads/main/downloads/GlassHome-1.3.2.apk
+- APK de esta distribución: https://github.com/soycaxte-lab/glass-home/raw/refs/heads/main/downloads/GlassHome-1.4.1.apk
 - Sumas SHA-256: https://github.com/soycaxte-lab/glass-home/blob/main/downloads/SHA256SUMS
 - Instalación y restauración: https://github.com/soycaxte-lab/glass-home/blob/main/docs/INSTALACION.md
 - Compilación: https://github.com/soycaxte-lab/glass-home/blob/main/docs/DESARROLLO.md
@@ -20,15 +20,16 @@ Lee primero README.md, docs/INSTALACION.md, docs/DESARROLLO.md y los scripts del
 
 1. OBJETIVO: CONSERVAR ESTA INTERFAZ
 
-Usa el APK oficial existente, sin rediseñarlo ni reemplazarlo por otro launcher. El paquete es local.glasshome y la actividad es local.glasshome/.MainActivity. La versión de esta interfaz es 1.3.2-compact (versionCode 6); el archivo distribuido se llama GlassHome-1.3.2.apk.
+Usa el APK oficial existente, sin rediseñarlo ni reemplazarlo por otro launcher. El paquete es local.glasshome y la actividad es local.glasshome/.MainActivity. La versión de esta interfaz es 1.4.1-artwork (versionCode 9); el archivo distribuido se llama GlassHome-1.4.1.apk.
 
 El resultado visual debe conservar:
-- Fondo oscuro azul/violeta con luces curvas y paneles de cristal translúcido, bordes iluminados y degradados.
-- Efectos de enfoque y escala suaves al moverse con el control remoto. Fondo estático para evitar carga continua de desenfoque o vídeo.
-- Hora y fecha a la izquierda; Wi-Fi y Ajustes a la derecha.
-- Widget de fútbol compacto de 216 x 104 dp centrado arriba entre el reloj y los controles. No lo ensanches: ya se redujo a la mitad para despejar la vista.
+- Fondo azul/violeta con bandas curvas amarillo perlado y menta, paneles de cristal translúcido, bordes y degradados.
+- Efectos de enfoque suaves y fondo estático sin desenfoque continuo ni vídeo.
+- Saludo y pregunta a la izquierda; fecha y hora centradas arriba; Wi-Fi, acceso al fútbol y Ajustes a la derecha.
+- Widget de fútbol de 224 x 92 dp justo debajo de la fecha.
+- Recomendación grande de películas o series a la izquierda; Continuar viendo a la derecha con imágenes completas y ancho adaptable a su proporción.
+- Pestañas Explorar / Películas / Series, que se aplican con OK.
 - Sin botón Inputs/Entradas en esta interfaz.
-- Fila Continuar viendo debajo del encabezado.
 - Dock flotante de cuatro aplicaciones en este orden: Netflix, TEVEO, Prime Video y YouTube.
 - Cuadrícula de aplicaciones accesible con la flecha abajo.
 - Fuente Outfit incluida con su licencia.
@@ -69,7 +70,7 @@ En Windows puedes usar desde la carpeta del repositorio:
   .\scripts\install.ps1 -Device IP:PUERTO
 
 Lee el script antes de ejecutarlo. Este instalador no deshabilita paquetes del sistema ni cambia DNS. Alternativamente, tras hacer los respaldos:
-  adb -s IP:PUERTO install -r GlassHome-1.3.2.apk
+  adb -s IP:PUERTO install -r GlassHome-1.4.1.apk
   adb -s IP:PUERTO shell pm grant local.glasshome android.permission.READ_TV_LISTINGS
   adb -s IP:PUERTO shell am start -n local.glasshome/.MainActivity
 
@@ -81,7 +82,7 @@ Si solicito personalización del código, usa el código existente y la guía de
 
 Abre el launcher sin cambiar todavía el HOME predeterminado. Inspecciona la pantalla real, cuando tengas acceso autorizado a capturas, y pídeme probar fluidez y legibilidad con el control físico. No uses la ilustración del README como evidencia de una prueba real.
 
-4. CONTINUAR VIENDO
+4. CONTINUAR VIENDO Y DESCUBRIMIENTO
 
 Usa la implementación Watch Next incluida. Lee los listados compartidos de Android TV; no busques historiales en bases privadas, no pidas credenciales de streaming ni extraigas sesiones.
 
@@ -90,6 +91,10 @@ Para poblar la fila, pídeme reproducir un título en una app compatible y volve
 TEVEO es una app independiente. NO modifiques, descompiles, parches, firmes ni sustituyas su APK. NO instales una versión antigua para recuperar tarjetas. TEVEO solo aparece si su propia versión publica registros Watch Next compatibles; si no los publica, explica que su desarrollador debe integrar esa función. No prometas que el launcher puede recuperar el historial privado. Conserva esta regla al actualizar TEVEO u otras apps.
 
 La fila utiliza títulos con progreso publicados como continuaciones, y los enlaces se limitan a la app que publicó la tarjeta. Si está vacía, distingue falta de permiso, falta de registros y falta de compatibilidad. No crees tarjetas falsas para disimularlo.
+
+Las tarjetas conservan la proporción de las imágenes publicadas por cada app mediante FIT_CENTER. Una imagen horizontal ocupa más ancho y deja menos tarjetas visibles; las siguientes se recorren con las flechas. No busques los títulos del historial en servicios externos para generar carteles.
+
+Conserva la recomendación grande con los feeds públicos de Apple: películas de España y temporadas de series de EE. UU. Es descubrimiento editorial, no personalizado; no envía historial ni requiere cuenta o clave API. El catálogo tiene caché de 24 horas y reintentos de al menos 15 minutos durante el uso. Explorar/Películas usan películas y Series usa series. Las mismas pestañas filtran Watch Next según el tipo publicado por cada app. Comprueba los detalles y el enlace a la fuente. No prometas que un título esté incluido en las suscripciones del usuario ni que sea gratuito; depende del catálogo y la región.
 
 5. FÚTBOL DE HOY Y MAÑANA
 
@@ -150,7 +155,7 @@ Comprueba conmigo:
 - Reproducción real en Netflix, TEVEO, Prime Video y YouTube instalados. No basta con abrir sus pantallas.
 - Wi-Fi/Ethernet, Bluetooth y funciones que utilizo.
 
-Como referencia de navegación: desde el dock, arriba entra en Continuar viendo y abajo en la cuadrícula. Desde Continuar viendo, arriba llega a Fútbol y abajo al dock. En Fútbol, izquierda/derecha cambia Hoy/Mañana; derecha desde Mañana va a Wi-Fi y después a Ajustes. Abajo entra a los partidos si existen o vuelve a Continuar viendo. Atrás regresa al dock.
+Como referencia de navegación: desde Netflix en el dock, arriba entra en la recomendación; desde las demás apps entra en Continuar viendo. Abajo abre la cuadrícula. Desde la recomendación, derecha entra en las continuaciones y OK abre detalles. Desde las tarjetas, arriba va a categorías y abajo al dock. En categorías, izquierda/derecha elige, OK aplica y arriba va al fútbol. En Fútbol, izquierda/derecha cambia Hoy/Mañana; derecha desde Mañana va a Wi-Fi y después a los controles de cabecera. Abajo entra a los partidos si existen o vuelve a Continuar viendo. Atrás regresa al dock.
 
 Reinicia una vez después de los cambios. Pídeme confirmar que HOME sigue abriendo Glass Home y que el control y la reproducción siguen funcionando. Si necesitas volver a conectarte, solicita el puerto inalámbrico actual; no supongas que el anterior sobrevivió. Comprueba que los cambios autorizados persisten y conserva evidencia local sin publicar historial personal.
 
