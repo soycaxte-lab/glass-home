@@ -1,8 +1,8 @@
 # Glass Home
 
-Un launcher para **Android TV y Google TV** con fondo azul/violeta, dock flotante, efecto de cristal, Continue Watching y un panel compacto de fútbol para hoy y mañana.
+Un launcher para **Android TV y Google TV** con una recomendación grande a la izquierda, Continuar viendo a la derecha, iconos inspirados en Apple TV, paneles de cristal y fútbol debajo de la fecha. Versión **1.4.1-artwork**.
 
-**[Descargar APK 1.3.2](downloads/GlassHome-1.3.2.apk?raw=true)** · [Instalación y restauración](docs/INSTALACION.md) · [Compilar y personalizar](docs/DESARROLLO.md)
+**[Descargar APK 1.4.1](downloads/GlassHome-1.4.1.apk?raw=true)** · [Instalación y restauración](docs/INSTALACION.md) · [Compilar y personalizar](docs/DESARROLLO.md)
 
 **[Copiar el prompt completo en español para tu asistente](docs/PROMPT-INSTALACION-ES.md)**. Incluye la instalación de esta interfaz, configuración, pruebas con el control y restauración. Abre el enlace y copia el bloque completo.
 
@@ -10,19 +10,22 @@ Un launcher para **Android TV y Google TV** con fondo azul/violeta, dock flotant
 
 ## Así se ve en la TV
 
-![Glass Home en el Xiaomi: inicio, dock y fútbol de hoy; historial oculto](docs/screenshots/inicio-hoy-privacidad.png)
+![Glass Home en el Xiaomi: recomendación, Continuar viendo, dock y fútbol de hoy](docs/screenshots/inicio-hoy.png)
 
-Captura del Xiaomi de referencia, editada con IA para ocultar la fila de historial antes de publicarla. La edición puede introducir pequeñas diferencias visuales; el recuadro de privacidad no forma parte del launcher. Las tarjetas, aplicaciones y partidos dependen de cada dispositivo y de sus proveedores.
+Captura real del Xiaomi de referencia, sin edición y con Continuar viendo visible, publicada con autorización de su propietario. Las tarjetas, aplicaciones, recomendaciones y partidos dependen de cada dispositivo y de sus proveedores.
 
-**[Ver las capturas de Hoy y Mañana](docs/CAPTURAS.md)** · [Ilustración del diseño](docs/preview.svg)
+**[Ver las capturas de Hoy y Mañana](docs/CAPTURAS.md)** · [Cambios de la versión 1.4.1](docs/NOVEDADES-1.4.1.md)
 
 ## Qué incluye
 
 - Fondo estático azul/violeta con reflejos y paneles translúcidos dibujados con degradados; sin desenfoque continuo ni vídeo de fondo.
+- Recomendación editorial de películas o series desde el catálogo público de Apple, con detalles y enlace a su fuente. No es personalizada ni garantiza disponibilidad en tus suscripciones.
+- Pestañas Explorar / Películas / Series que también filtran las continuaciones según los datos publicados por cada app.
 - Dock inicial: Netflix → TEVEO → Prime Video → YouTube, con los iconos de tus aplicaciones instaladas.
 - Navegación por flechas, cuadrícula de apps, reloj y acceso a Wi-Fi y Ajustes.
 - Continue Watching mediante **Android TV Watch Next**: títulos, progreso y enlaces de reanudación publicados por las apps compatibles.
-- Fútbol en una tarjeta de 216 dp centrada entre el reloj y Wi-Fi/Ajustes, con pestañas Hoy/Mañana y horarios según la zona de la TV.
+- Carteles de Continuar viendo con ancho adaptable a su proporción y la imagen completa; las siguientes tarjetas se recorren con las flechas.
+- Fútbol en una tarjeta de 224 × 92 dp centrada debajo de la fecha, con pestañas Hoy/Mañana y horarios según la zona de la TV.
 - Calendarios iniciales: Real Madrid, Bayern Múnich, Barcelona, Atlético Nacional y selección de Colombia.
 
 ## Compatibilidad
@@ -35,13 +38,13 @@ Las apps de streaming se instalan por separado; Glass Home no incluye contenido,
 
 ## Instalación rápida con ADB
 
-1. Descarga el [APK](downloads/GlassHome-1.3.2.apk?raw=true) y [Android Platform Tools](https://developer.android.com/tools/releases/platform-tools).
+1. Descarga el [APK](downloads/GlassHome-1.4.1.apk?raw=true) y [Android Platform Tools](https://developer.android.com/tools/releases/platform-tools).
 2. Activa la depuración en la TV y utiliza la dirección **IP:puerto que muestre ahora**. En Android con emparejamiento inalámbrico, empareja primero con el puerto y código de esa pantalla.
 3. Instala y abre el launcher:
 
 ```sh
 adb connect IP:PUERTO
-adb -s IP:PUERTO install -r GlassHome-1.3.2.apk
+adb -s IP:PUERTO install -r GlassHome-1.4.1.apk
 adb -s IP:PUERTO shell pm grant local.glasshome android.permission.READ_TV_LISTINGS
 adb -s IP:PUERTO shell am start -n local.glasshome/.MainActivity
 ```
@@ -54,8 +57,10 @@ Comprueba la navegación antes de seleccionar Glass Home como inicio predetermin
 
 | Desde | Acción |
 |---|---|
-| Dock | ←/→ cambia de app; ↑ entra en Continue Watching; ↓ abre la cuadrícula |
-| Continue Watching | ←/→ recorre títulos; ↑ va a Fútbol; ↓ vuelve al dock |
+| Dock | ←/→ cambia de app; ↑ desde Netflix va a la recomendación y desde las demás apps a Continuar viendo; ↓ abre la cuadrícula |
+| Recomendación | OK abre detalles; → entra en Continuar viendo; ↑ va a las categorías; ↓ vuelve al dock |
+| Continuar viendo | ←/→ recorre títulos; ← desde el primero vuelve a la recomendación; ↑ va a categorías; ↓ vuelve al dock |
+| Categorías | ←/→ elige y OK aplica; ↑ va a fútbol; ↓ a la recomendación |
 | Fútbol | ←/→ cambia Hoy/Mañana; → desde Mañana pasa a Wi-Fi |
 | Hoy/Mañana | ↓ entra en los partidos; si no hay, vuelve a Continue Watching |
 | Partido | OK abre su detalle; ↓ desde el último vuelve a Continue Watching |
@@ -68,13 +73,15 @@ Continue Watching lee los listados compartidos de Android TV con `READ_TV_LISTIN
 
 El panel de fútbol utiliza las [suscripciones iCalendar gratuitas de Fixtur.es](https://fixtur.es/es/team/real-madrid), no extrae datos de FotMob. Mantiene una caché privada, respeta una ventana de seis horas entre actualizaciones de cada calendario y espera al menos 15 minutos después de un fallo. Solo consulta al volver al launcher o al cambiar de día mientras está visible. No incluye marcadores en directo; cobertura y horarios dependen de la fuente.
 
-No hay analítica propia, servidor propio ni servicio permanente en segundo plano. La app guarda localmente la última app seleccionada y la caché de calendarios. Android puede incluir esos datos en sus mecanismos de copia de seguridad. Los proveedores externos reciben las solicitudes de red necesarias para imágenes y calendarios.
+El descubrimiento consulta feeds públicos de Apple: películas de España y temporadas de series de EE. UU. No envía el historial. Guarda catálogo e imágenes en caché durante 24 horas y espacia los reintentos al menos 15 minutos mientras el launcher está activo. La disponibilidad y el precio dependen del catálogo y la región.
+
+No hay analítica propia, servidor propio ni servicio permanente en segundo plano. La app guarda la última app seleccionada y cachés de calendarios y descubrimiento. Android puede incluir esos datos en sus copias de seguridad. Los proveedores externos reciben las solicitudes de red necesarias para catálogos, imágenes y calendarios.
 
 ## Código y validación
 
 Java 17, Android SDK 35, Gradle wrapper y AndroidX RecyclerView. [Cómo compilar](docs/DESARROLLO.md).
 
-La interfaz compacta se instaló y revisó en el Xiaomi indicado. Se probaron Hoy/Mañana, detalles de partidos, navegación con D-pad, Wi-Fi/Ajustes y regreso a HOME. El lector iCalendar pasó 24 comprobaciones, incluidas pruebas con cinco calendarios reales. Las pruebas reproducibles sin red están en `checks/FootballFixturesCheck.java`.
+La versión 1.4.1 se instaló y su imagen completa se revisó en el Xiaomi indicado. En el diseño 1.4 se comprobaron la navegación D-pad, las categorías, los detalles, fútbol, Ajustes y HOME. La distribución pasó `assembleRelease lintRelease` con 0 errores y 26 advertencias. El lector iCalendar incluye 14 comprobaciones reproducibles sin red. Cada usuario debe comprobar fluidez y reanudación con su control y sus apps.
 
 Los builds de GitHub Actions son compilaciones de depuración para comprobar el código; sus firmas pueden variar. Para instalar o actualizar la distribución oficial utiliza el APK de `downloads/` y verifica [SHA256SUMS](downloads/SHA256SUMS).
 
