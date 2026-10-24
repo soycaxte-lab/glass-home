@@ -1,7 +1,7 @@
 param(
  [Parameter(Mandatory=$true)][string]$Device,
  [string]$Adb = 'adb',
- [string]$Apk = (Join-Path $PSScriptRoot '../downloads/GlassHome-1.3.2.apk'),
+ [string]$Apk = (Join-Path $PSScriptRoot '../downloads/GlassHome-1.4.1.apk'),
  [switch]$SetHome
 )
 $ErrorActionPreference = 'Stop'
