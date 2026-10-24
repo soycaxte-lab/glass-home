@@ -11,7 +11,7 @@ android {
    keyPassword = providers.environmentVariable("GLASSHOME_KEY_PASSWORD").get()
   }
  }
- defaultConfig { applicationId = "local.glasshome"; minSdk = 26; targetSdk = 35; versionCode = 6; versionName = "1.3.2-compact" }
+ defaultConfig { applicationId = "local.glasshome"; minSdk = 26; targetSdk = 35; versionCode = 9; versionName = "1.4.1-artwork" }
  buildTypes { getByName("release") {
   isDebuggable = false
   isMinifyEnabled = false
