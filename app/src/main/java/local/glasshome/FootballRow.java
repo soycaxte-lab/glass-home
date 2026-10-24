@@ -28,7 +28,7 @@ final class FootballRow extends LinearLayout {
  private final Runnable midnight=()->{render();startLoad();scheduleMidnight();};
 
  FootballRow(MainActivity h){
-  super(h);home=h;setOrientation(VERTICAL);setPadding(h.dp(12),h.dp(8),h.dp(12),h.dp(6));setBackground(h.surface(20,false,0x243c4863));setClipChildren(false);
+  super(h);home=h;setOrientation(VERTICAL);setPadding(h.dp(12),h.dp(8),h.dp(12),h.dp(6));setBackground(new android.graphics.drawable.LayerDrawable(new android.graphics.drawable.Drawable[]{h.shape(0x85303769,20),h.surface(20,false,0x243c4863)}));setClipChildren(false);
   LinearLayout bar=new LinearLayout(h);bar.setGravity(Gravity.CENTER_VERTICAL);addView(bar,new LayoutParams(-1,h.dp(24)));
   TextView heading=h.text("Fútbol",13,0xffedf3ff);bar.addView(heading,new LayoutParams(0,-2,1));
   for(int i=0;i<2;i++){
