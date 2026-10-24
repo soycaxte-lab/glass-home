@@ -2,7 +2,7 @@
 
 Un launcher para **Android TV y Google TV** con una recomendación grande a la izquierda, Continuar viendo a la derecha, iconos inspirados en Apple TV, paneles de cristal y fútbol debajo de la fecha. Versión **1.4.1-artwork**.
 
-**[Descargar APK 1.4.1](downloads/GlassHome-1.4.1.apk?raw=true)** · [Instalación y restauración](docs/INSTALACION.md) · [Compilar y personalizar](docs/DESARROLLO.md)
+**[Descargar APK 1.4.1](https://github.com/soycaxte-lab/glass-home/releases/download/v1.4.1/GlassHome-1.4.1.apk)** · [Releases](https://github.com/soycaxte-lab/glass-home/releases/latest) · [Instalación y restauración](docs/INSTALACION.md) · [Compilar y personalizar](docs/DESARROLLO.md)
 
 **[Copiar el prompt completo en español para tu asistente](docs/PROMPT-INSTALACION-ES.md)**. Incluye la instalación de esta interfaz, configuración, pruebas con el control y restauración. Abre el enlace y copia el bloque completo.
 
