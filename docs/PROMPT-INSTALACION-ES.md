@@ -1,174 +1,139 @@
-# Prompt completo en español para instalar Glass Home
+# Prompt completo en español: instalación guiada de Glass Home 1.5.0
 
-Copia **todo el bloque** con el botón de copiar y pégalo en un asistente de programación con acceso a archivos, terminal y red. El asistente necesitará tu ayuda para activar la depuración y probar el control físico. No pegues contraseñas ni códigos de emparejamiento en un chat público.
+Copia todo el bloque y pégalo en un asistente con acceso autorizado a archivos, terminal e Internet en un ordenador de tu red local. Te preguntará los datos que falten y te guiará con los pasos físicos de la TV. Un chat sin esas herramientas puede explicarlo, pero no instalar por ti.
 
-Este prompt reproduce la distribución **1.4.1-artwork** y el proceso del Xiaomi original, adaptando los pasos del sistema al dispositivo de cada persona. La apariencia se conserva usando el APK del proyecto; las apps, tarjetas y partidos dependen de tu equipo y de sus proveedores. No garantiza compatibilidad con todos los firmwares.
+La versión **1.5.0-fast** conserva el diseño de cristal y optimiza el regreso a Home. El APK oficial garantiza la misma base visual; apps, continuaciones, recomendaciones y calendarios dependen de cada equipo. No hay una prueba que permita llamarlo «el más rápido de todos».
 
 ```text
-Quiero que instales y configures Glass Home en mi Android TV o Google TV siguiendo este proceso completo. Trabaja en español y lleva la instalación hasta verificarla en la TV. Puedes descargar el proyecto, inspeccionar el dispositivo, guardar respaldos e instalar el launcher. Pídeme únicamente los datos y las acciones físicas que realmente necesites. Explica de forma breve los avances y cualquier limitación real.
+Quiero instalar o actualizar Glass Home 1.5.0-fast en mi Android TV o Google TV. Trabaja en español y encárgate de preparar herramientas, verificar la descarga, respaldar lo necesario, instalar, probar y explicar la restauración. Guíame hasta terminar; pregúntame los datos, preferencias y pasos físicos que necesites. No te limites a darme instrucciones si tienes herramientas y autorización para ejecutarlas.
 
-PROYECTO Y ARCHIVOS OFICIALES
+0. ARCHIVOS OFICIALES Y ALCANCE
 
-- Repositorio: https://github.com/soycaxte-lab/glass-home
-- APK de esta distribución: https://github.com/soycaxte-lab/glass-home/raw/refs/heads/main/downloads/GlassHome-1.4.1.apk
-- Sumas SHA-256: https://github.com/soycaxte-lab/glass-home/blob/main/downloads/SHA256SUMS
-- Instalación y restauración: https://github.com/soycaxte-lab/glass-home/blob/main/docs/INSTALACION.md
-- Compilación: https://github.com/soycaxte-lab/glass-home/blob/main/docs/DESARROLLO.md
-- Código descargable: https://github.com/soycaxte-lab/glass-home/archive/refs/heads/main.zip
+Repositorio: https://github.com/soycaxte-lab/glass-home
+Release: https://github.com/soycaxte-lab/glass-home/releases/tag/v1.5.0
+APK: https://github.com/soycaxte-lab/glass-home/releases/download/v1.5.0/GlassHome-1.5.0.apk
+SHA256SUMS: https://github.com/soycaxte-lab/glass-home/releases/download/v1.5.0/SHA256SUMS
+Proyecto de esta versión: https://github.com/soycaxte-lab/glass-home/archive/refs/tags/v1.5.0.zip
+Tutorial: https://github.com/soycaxte-lab/glass-home/blob/v1.5.0/docs/TUTORIAL-ES.md
+Guía de instalación: https://github.com/soycaxte-lab/glass-home/blob/v1.5.0/docs/INSTALACION.md
+Desarrollo: https://github.com/soycaxte-lab/glass-home/blob/v1.5.0/docs/DESARROLLO.md
+Rendimiento: https://github.com/soycaxte-lab/glass-home/blob/v1.5.0/docs/RENDIMIENTO-1.5.0.md
 
-Lee primero README.md, docs/INSTALACION.md, docs/DESARROLLO.md y los scripts del repositorio. Descarga la versión indicada y compara su SHA-256 con el archivo de sumas de la misma revisión del repositorio. Si falta el archivo, no coincide la suma o la documentación cambió materialmente, detente y explica el problema. Registra la revisión y la suma utilizadas para que el resultado sea reproducible. No descargues APK de otras páginas ni inventes archivos que no existan.
+Lee README, las guías y los scripts antes de ejecutarlos. Descarga solo de este repositorio y las herramientas de sus proveedores oficiales. Registra la revisión y la suma utilizadas. Si un archivo falta, una suma no coincide o una firma no es compatible, detente en esa operación y explica el motivo; no inventes enlaces ni desinstales para saltar errores.
 
-1. OBJETIVO: CONSERVAR ESTA INTERFAZ
+Esta autorización incluye inspección por ADB, respaldos locales, instalación/actualización del launcher y pruebas. No incluye root, borrar datos, restablecer de fábrica, extraer cuentas o sesiones, deshabilitar paquetes del sistema ni modificar reproductores. Los cambios opcionales necesitan mi elección específica. Conserva la configuración existente cuando no solicite cambiarla.
 
-Usa el APK oficial existente, sin rediseñarlo ni reemplazarlo por otro launcher. El paquete es local.glasshome y la actividad es local.glasshome/.MainActivity. La versión de esta interfaz es 1.4.1-artwork (versionCode 9); el archivo distribuido se llama GlassHome-1.4.1.apk.
+1. ENTREVISTA INICIAL: PREGÚNTAME LO NECESARIO
 
-El resultado visual debe conservar:
-- Fondo azul/violeta con bandas curvas amarillo perlado y menta, paneles de cristal translúcido, bordes y degradados.
-- Efectos de enfoque suaves y fondo estático sin desenfoque continuo ni vídeo.
-- Saludo y pregunta a la izquierda; fecha y hora centradas arriba; Wi-Fi, acceso al fútbol y Ajustes a la derecha.
-- Widget de fútbol de 224 x 92 dp justo debajo de la fecha.
-- Recomendación grande de películas o series a la izquierda; Continuar viendo a la derecha con imágenes completas y ancho adaptable a su proporción.
-- Pestañas Explorar / Películas / Series, que se aplican con OK.
-- Sin botón Inputs/Entradas en esta interfaz.
-- Dock flotante de cuatro aplicaciones en este orden: Netflix, TEVEO, Prime Video y YouTube.
-- Cuadrícula de aplicaciones accesible con la flecha abajo.
-- Fuente Outfit incluida con su licencia.
+Haz preguntas claras, en grupos pequeños de hasta tres. Ofrece los valores recomendados y no vuelvas a preguntar lo que ya respondí o puedas comprobar con herramientas. Continúa el trabajo independiente mientras respondo. No tomes el silencio como permiso.
 
-Las aplicaciones de streaming se instalan por separado y requieren las cuentas del usuario. No contienen suscripciones ni contenido en este repositorio. Si falta alguna, informa y permite instalarla desde su fuente oficial; no uses versiones modificadas. Los iconos proceden de las apps instaladas.
+Averigua:
+- Ordenador y sistema operativo; si el asistente dispone de terminal y acceso a la red local. Inspecciona herramientas ya instaladas antes de pedir que las instale.
+- Marca/modelo del Android TV o box y si es instalación nueva o actualización. Comprueba por ADB el Android, usuario activo, versión de Glass Home, resolución y densidad cuando conecte.
+- Si están en la misma red local. Pídeme la IP:PUERTO de conexión que muestre ahora Wireless debugging, y si ofrece emparejamiento por código. No asumas direcciones ni puertos de otra persona.
+- Si utiliza Wi-Fi o Ethernet, USB o adaptadores que deban conservarse. Conserva voz, Bluetooth, volumen, HDMI-CEC, actualizaciones y casting que utilice.
+- Apps de streaming que uso. Recomienda el dock oficial Netflix → TEVEO → Prime Video → YouTube y confirma si quiero ese mismo diseño o una personalización.
+- Fútbol: confirma si conservo Real Madrid, Bayern Múnich, Barcelona, Atlético Nacional y selección de Colombia. La distribución actual usa esos cinco; no tiene un selector de equipos.
+- Si quiero recomendaciones editoriales públicas de películas/series y Continuar viendo. Explica sus fuentes y dependencias. No presentes estas preguntas como ajustes que ya existan: cambiar el dock, equipos o retirar paneles requiere modificar y compilar una variante, con firma propia y sus límites de actualización. Propón primero instalar el APK oficial sin modificar.
+- Si quiero seleccionar Glass Home como HOME después de probarlo, o solo instalarlo para evaluarlo.
 
-El launcher requiere Android 8.0 o superior. La referencia física original es un Xiaomi MiTV-AFMU0 con Android 14, pantalla 1920 x 1080. Inspecciona el modelo real, versión, resolución y densidad antes de hacer cambios. No cambies resolución o densidad para forzar la apariencia. Samsung Tizen y LG webOS no ejecutan este APK; si ese es mi equipo, explica que hace falta un dispositivo externo Android TV/Google TV conectado por HDMI.
+No pidas contraseñas de Wi-Fi ni de streaming en el chat: las introduzco directamente en sus pantallas. No hagas preguntas sobre DNS o limpieza como si fueran requisitos de la interfaz. Solo evalúalas si las solicito, por separado y con respaldo y pruebas de conectividad.
 
-2. CONEXIÓN Y RESPALDOS
+Si mi TV usa Samsung Tizen o LG webOS, este APK no funciona directamente: explica que necesito un dispositivo Android TV/Google TV por HDMI. Requiere Android 8.0 o superior; otros firmwares pueden limitar HOME o Watch Next.
 
-Primero averigua qué herramientas tienes disponibles en el ordenador. Usa Android Platform Tools de Google para ADB y elige siempre el dispositivo explícitamente, sin actuar sobre otros teléfonos o televisores conectados.
+2. INTERFAZ QUE DEBES CONSERVAR
 
-Pídeme marca/modelo y la dirección completa IP:PUERTO mostrada ahora en Wireless debugging. No asumas ninguna IP de otra instalación ni que el puerto sigue igual después de reiniciar. Confirma si la conexión de red es Wi-Fi o Ethernet y si hay adaptadores o dispositivos USB que deban conservarse.
+Usa el APK oficial 1.5.0-fast (versionCode 12), paquete local.glasshome y actividad local.glasshome/.MainActivity. No reconstruyas una aproximación desde cero.
+- Fondo estático azul/violeta con bandas amarillo perlado y menta, paneles de cristal y enfoque animado; sin vídeo ni desenfoque continuo.
+- Saludo/pregunta a la izquierda, fecha/hora centradas, fútbol compacto de 224 x 92 dp justo debajo; Wi-Fi, balón y Ajustes a la derecha.
+- Recomendación grande a la izquierda y Continuar viendo a la derecha con imágenes completas y ancho adaptable a su proporción.
+- Explorar / Películas / Series, aplicadas con OK.
+- Dock de cuatro iconos en el orden indicado y cuadrícula con flecha abajo; sin botón Inputs en este diseño.
+- Fuente Outfit incluida con licencia.
 
-Si aparece emparejamiento inalámbrico, distingue su puerto del puerto de conexión:
+La optimización reutiliza apps y vistas al regresar, conserva foco y actualiza progresos sin reconstruir todo. El catálogo de apps se invalida con instalaciones/actualizaciones/eliminaciones. No requiere dejar ADB encendido ni añadir servicios permanentes. No prometas tiempos de otro hardware ni que acelera el servidor de Netflix u otra app.
+
+3. PREPARAR ADB, CONECTAR Y RESPALDAR
+
+Usa Android Platform Tools de Google. Selecciona siempre el dispositivo explícitamente con -s; no actúes sobre otros teléfonos, emuladores o televisores conectados.
+
+Cuando el firmware ofrezca emparejamiento:
   adb pair IP:PUERTO_DE_EMPAREJAMIENTO
+Introduce el código temporal en mi propia terminal. Luego usa el puerto de conexión de la pantalla principal:
   adb connect IP:PUERTO_DE_CONEXION
   adb devices
 
-Permite que introduzca el código temporal directamente en mi terminal. No guardes ni publiques códigos o contraseñas. Si no hay conexión, comprueba el endpoint actual y el estado de autorización antes de proponer otros métodos.
+No confundas los puertos. Si el endpoint cambia, pídeme el actual. No pruebes direcciones al azar ni abras puertos del router. Si el firmware ofrece otra forma de depuración, inspecciónala antes de actuar.
 
-Antes de instalar o cambiar HOME, guarda localmente:
-- Modelo, versión Android y estado de conexión.
-- Componente HOME original resuelto y lista de launchers disponibles.
-- Paquetes relevantes habilitados/deshabilitados y valores DNS originales si se fueran a cambiar.
-- APK existente de Glass Home y su versión/firma, si ya está instalado.
-- Lista exacta de cualquier cambio que hagas y cómo revertirlo.
+Verifica que el estado sea device. Antes de instalar guarda localmente:
+- Modelo, Android, usuario activo, versión y firma del launcher instalado.
+- Componente HOME que resuelve el sistema y launchers disponibles.
+- APK anterior de Glass Home, si existe, y registro de cambios/restauración.
 
-Los scripts públicos guardan el HOME anterior y el APK de Glass Home si existe; no son una copia completa del dispositivo ni respaldan los datos privados de otras apps. Si HOME ya era Glass Home, no lo presentes como un respaldo del launcher de fábrica. Guarda los respaldos fuera de cualquier carpeta que se vaya a publicar.
+Los respaldos del script contienen el HOME, usuario y APK anterior; no son copia completa de los datos de la TV. Si HOME ya era Glass Home, no lo describas como respaldo del inicio de fábrica. Guarda respaldos, direcciones y claves fuera del proyecto público.
 
-No hagas root, restablecimiento de fábrica, borrado de datos, desinstalación de apps del sistema ni cambios de cuentas. Conserva voz, control remoto, Bluetooth, HDMI-CEC, Wi-Fi/Ethernet, Google Play Services, actualizaciones y funciones de reproducción. Conserva Chromecast/Miracast cuando existan, salvo que yo solicite otra cosa.
+4. VERIFICAR E INSTALAR
 
-3. INSTALAR Y PROBAR ANTES DE CAMBIAR HOME
+Compara el SHA-256 del APK con su fila en SHA256SUMS de la misma Release. En Windows:
+  Get-FileHash .\downloads\GlassHome-1.5.0.apk -Algorithm SHA256
+  Get-Content .\downloads\SHA256SUMS
 
-Prefiere el APK oficial verificado para obtener la misma interfaz. No recompiles si no es necesario.
+No instales si no coincide. El ZIP de la versión incluye el APK y los scripts. Para actualización, compara versión y firma; no intentes bajar de una versión superior a la 1.5.0. Conserva datos y configuración.
 
-En Windows puedes usar desde la carpeta del repositorio:
-  .\scripts\install.ps1 -Device IP:PUERTO
+En Windows, desde el proyecto:
+  .\scripts\install.ps1 -Device IP:PUERTO_DE_CONEXION -Adb RUTA_A_ADB
 
-Lee el script antes de ejecutarlo. Este instalador no deshabilita paquetes del sistema ni cambia DNS. Alternativamente, tras hacer los respaldos:
-  adb -s IP:PUERTO install -r GlassHome-1.4.1.apk
-  adb -s IP:PUERTO shell pm grant local.glasshome android.permission.READ_TV_LISTINGS
+El instalador también verifica el SHA-256 antes de conectar/instalar, registra el usuario Android activo y guarda respaldo. Sin -SetHome solo abre el launcher; no cambia DNS ni deshabilita paquetes. Si se omite -Device pregunta por la dirección. Lee y comprueba cada resultado.
+
+Si PowerShell bloquea el script, no desactives la política global: utiliza comandos manuales después de respaldar:
+  adb -s IP:PUERTO install -r GlassHome-1.5.0.apk
+  adb -s IP:PUERTO shell pm grant --user USUARIO_ACTIVO local.glasshome android.permission.READ_TV_LISTINGS
   adb -s IP:PUERTO shell am start -n local.glasshome/.MainActivity
 
-Comprueba los resultados de cada comando. Si READ_TV_LISTINGS no está disponible en ese firmware, explica la limitación de Continuar viendo y prueba el resto. No declares que el permiso se concedió si falló.
+Sustituye USUARIO_ACTIVO por el valor comprobado con am get-current-user. Si un permiso no está disponible, explica la limitación y sigue con las funciones independientes. No declares éxito cuando un comando falla.
 
-Si la instalación da error de firma, conserva la app y sus datos, inspecciona la firma instalada y la del APK y explícame las opciones. No desinstales automáticamente para saltar el conflicto. Las compilaciones de depuración y los artefactos de CI pueden tener otra firma.
+La firma de la distribución permite actualizar sus versiones anteriores. Los APK de CI o compilaciones propias pueden usar otra firma: no desinstales automáticamente para eludir un conflicto. Las claves privadas no están en el repositorio. Si solicito una variante, explica la firma y los límites de futuras actualizaciones antes de instalarla, conserva el APK anterior y utiliza el código y wrapper existentes.
 
-Si solicito personalización del código, usa el código existente y la guía de desarrollo: Java 17, SDK 35 y el wrapper Gradle incluido. No reconstruyas una interfaz aproximada desde cero. Las claves privadas de la distribución no están en el repositorio; una compilación propia necesita su propia firma y puede no actualizar directamente la instalación oficial. No publiques claves ni contraseñas de firma.
+5. COMPROBAR CONTENIDO Y CONTROL
 
-Abre el launcher sin cambiar todavía el HOME predeterminado. Inspecciona la pantalla real, cuando tengas acceso autorizado a capturas, y pídeme probar fluidez y legibilidad con el control físico. No uses la ilustración del README como evidencia de una prueba real.
+Pídeme probar con el control físico:
+- Dock en orden, flechas, OK, Atrás, cuadrícula, Ajustes y HOME.
+- Volver desde una app sin reconstrucciones visibles, sin saltos del foco y con imágenes completas.
+- Desde Netflix en el dock, arriba lleva a la recomendación; desde las demás apps, a Continuar viendo. Abajo abre la cuadrícula.
+- En la recomendación, OK abre detalles, derecha lleva a continuaciones y arriba a categorías. Desde una continuación, arriba va a categorías y abajo al dock.
+- En categorías, izquierda/derecha elige, OK aplica y arriba va al fútbol. En fútbol, Hoy/Mañana y los detalles disponibles; derecha desde Mañana lleva a Wi-Fi y a los controles de cabecera.
+- Voz, volumen, Bluetooth, botones de acceso directo y reproducción real en mis servicios. Abrir una app no prueba que reproduzca.
 
-4. CONTINUAR VIENDO Y DESCUBRIMIENTO
+Continuar viendo:
+Pídeme reproducir un título, dejarlo a medias y volver a Home. Verifica tarjeta, app correcta y reanudación, incluyendo elección de perfil cuando aparezca. Lee solo Android TV Watch Next compartido, no bases privadas. Conserva la restricción del enlace a la app que lo publicó. Un permiso concedido no inventa tarjetas. TEVEO, Xuper y otros servicios solo aparecen si publican registros compatibles. NO modifiques, descompiles, parches ni sustituyas sus APK; no prometas recuperar su historial.
 
-Usa la implementación Watch Next incluida. Lee los listados compartidos de Android TV; no busques historiales en bases privadas, no pidas credenciales de streaming ni extraigas sesiones.
+Recomendaciones:
+Son editoriales del catálogo público de Apple: películas de España y series de EE. UU.; no personalizadas y no reciben mi historial. Caché de catálogo de 24 horas, reintentos de 15 minutos; solo durante el uso. Comprueba detalles y enlace a la fuente. Un título puede requerir compra/alquiler y no estar en mis suscripciones. No inventes carteles o disponibilidad.
 
-Para poblar la fila, pídeme reproducir un título en una app compatible y volver al launcher. Comprueba que aparece y que al pulsarlo abre la app correcta y reanuda el título. Netflix y Prime Video funcionaron en el dispositivo original, pero la disponibilidad depende de versión, perfil y dispositivo. Puede aparecer primero el selector de perfil: deja que yo elija y confirme la reanudación.
+Fútbol:
+Usa Fixtur.es iCalendar, no extracción de FotMob. Cinco favoritos originales, horas de la zona de la TV, caché de seis horas y reintentos de 15 minutos. No incluye marcadores en directo. Comprueba Hoy/Mañana, estado vacío y partidos reales cuando haya. No inventes encuentros para llenar el panel. Los datos guardados pueden mostrarse mientras se actualizan.
 
-TEVEO es una app independiente. NO modifiques, descompiles, parches, firmes ni sustituyas su APK. NO instales una versión antigua para recuperar tarjetas. TEVEO solo aparece si su propia versión publica registros Watch Next compatibles; si no los publica, explica que su desarrollador debe integrar esa función. No prometas que el launcher puede recuperar el historial privado. Conserva esta regla al actualizar TEVEO u otras apps.
+6. HOME, REINICIO Y RESTAURACIÓN
 
-La fila utiliza títulos con progreso publicados como continuaciones, y los enlaces se limitan a la app que publicó la tarjeta. Si está vacía, distingue falta de permiso, falta de registros y falta de compatibilidad. No crees tarjetas falsas para disimularlo.
-
-Las tarjetas conservan la proporción de las imágenes publicadas por cada app mediante FIT_CENTER. Una imagen horizontal ocupa más ancho y deja menos tarjetas visibles; las siguientes se recorren con las flechas. No busques los títulos del historial en servicios externos para generar carteles.
-
-Conserva la recomendación grande con los feeds públicos de Apple: películas de España y temporadas de series de EE. UU. Es descubrimiento editorial, no personalizado; no envía historial ni requiere cuenta o clave API. El catálogo tiene caché de 24 horas y reintentos de al menos 15 minutos durante el uso. Explorar/Películas usan películas y Series usa series. Las mismas pestañas filtran Watch Next según el tipo publicado por cada app. Comprueba los detalles y el enlace a la fuente. No prometas que un título esté incluido en las suscripciones del usuario ni que sea gratuito; depende del catálogo y la región.
-
-5. FÚTBOL DE HOY Y MAÑANA
-
-Conserva el widget compacto incluido, con estos equipos iniciales:
-- Real Madrid.
-- Bayern Múnich.
-- FC Barcelona.
-- Atlético Nacional.
-- Selección de Colombia, no un club llamado Colombia FC.
-
-Usa las suscripciones iCalendar gratuitas de Fixtur.es implementadas en el proyecto. Los identificadores son real-madrid, bayern-munchen, fc-barcelona, atletico-nacional y co. No extraigas periódicamente datos de FotMob ni solicites una API de pago para esta configuración.
-
-Muestra Hoy/Mañana según la zona horaria de la TV, encuentros como local y visitante cuando estén publicados, sin duplicar partidos entre favoritos. No inventes un horario cuando el calendario no lo especifica. Respeta la caché de seis horas y los reintentos de al menos 15 minutos; no conviertas el panel en un servicio continuo. No es un marcador en directo y la cobertura depende de la fuente. Si no hay encuentros publicados para esos días, muestra el estado vacío de forma honesta.
-
-Comprueba ambas pestañas, la hora local y el detalle de un partido cuando haya alguno. No fuerces un partido de otra fecha para que parezca que el widget funciona. Si necesito cambiar equipos en esta versión, revisa la configuración del código y explica si requiere compilar: no inventes una pantalla de selección que no existe.
-
-6. SELECCIONAR GLASS HOME COMO INICIO
-
-Solo después de comprobar el funcionamiento, selecciona Glass Home como aplicación de inicio desde Ajustes cuando el firmware lo permita. Como alternativa:
-  adb -s IP:PUERTO shell cmd package set-home-activity --user 0 local.glasshome/.MainActivity
+Después de las pruebas y según mi elección, selecciona el launcher en Ajustes si el firmware lo permite. Como alternativa:
+  adb -s IP:PUERTO shell cmd package set-home-activity --user USUARIO_ACTIVO local.glasshome/.MainActivity
   adb -s IP:PUERTO shell input keyevent KEYCODE_HOME
 
-En Windows el instalador admite -SetHome. Comprueba el resultado físico; un comando aceptado no garantiza que el firmware deje de interceptar HOME.
+El script admite -SetHome como opción explícita. Verifica físicamente HOME; que Android acepte el comando no garantiza que el fabricante lo respete.
 
-Si HOME sigue abriendo el launcher de fábrica, inspecciona específicamente ese modelo y sus dependencias. No ejecutes una lista genérica de paquetes a deshabilitar. Conserva acceso a Ajustes y una ruta de restauración antes de cualquier intervención adicional. Si hace falta deshabilitar un componente de fábrica, explica cuál, por qué, qué puede afectar y obtén mi autorización específica para ese cambio.
+Si no funciona, inspecciona ese firmware. No deshabilites paquetes con listas genéricas ni borres el launcher de fábrica. En algunos Xiaomi un asistente puede ser propietario de la Wi-Fi guardada: no lo deshabilites ni hagas olvidar la red por rutina. Cualquier intervención adicional necesita explicar el componente, dependencias, restauración y mi autorización específica.
 
-En el Xiaomi original hubo una particularidad: com.google.android.tungsten.setupwraith era propietario de la red Wi-Fi guardada. Antes de deshabilitarlo hubo que olvidar y volver a conectar la red desde Ajustes, dejando que el usuario introdujera su contraseña, y comprobar que la red ya no dependía de ese paquete. Esto desconecta temporalmente ADB y puede cambiar el puerto. No repitas ese paso por rutina ni deshabilites el propietario de la red sin resolver la dependencia. Si corresponde a mi dispositivo, guíame, espera a que confirme la reconexión y solicita el nuevo endpoint antes de continuar.
+Reinicia una vez y pídeme comprobar HOME, red, control y reproducción. Si hace falta reconectar, solicita la dirección actual. Si falla algo, restaura el APK anterior con firma compatible cuando Android permita esa versión; no uses downgrade forzado ni borrado de datos. La vuelta al inicio de fábrica es independiente de desinstalar Glass Home.
 
-Si no se puede cambiar HOME de forma reversible y comprobada, deja instalado el launcher y explica el impedimento; no sacrifiques la red o las funciones del control para forzarlo.
+Para restaurar HOME, usa Ajustes o el componente exacto guardado. En Windows:
+  .\scripts\restore-home.ps1 -Device IP:PUERTO -Adb RUTA_A_ADB -BackupFile .\backups\CARPETA\home.json
+El script valida el usuario del respaldo frente al activo. Si el componente guardado ya era Glass Home, elige el inicio de fábrica desde Ajustes.
 
-7. OPCIONES DEL PROCESO ORIGINAL: DNS Y LIMPIEZA
+7. CIERRE Y ENTREGA
 
-Estas opciones no son necesarias para conseguir la interfaz. No las apliques por defecto. Pregúntame si quiero DNS con bloqueo de anuncios y si quiero revisar paquetes de recomendaciones/telemetría. Continúa las otras tareas mientras respondo.
+Cuando terminemos las pruebas, guíame para revocar autorizaciones, apagar Wireless/USB/Network/ADB debugging donde existan y reiniciar. Glass Home no requiere depuración para funcionar. Distingue conexión rechazada de timeout; probar un puerto no demuestra que todos estén cerrados.
 
-Si elijo DNS con bloqueo, la opción del equipo original fue DNS privado dns.adguard-dns.com. Guarda antes los valores exactos de private_dns_mode y private_dns_specifier, comprueba que el firmware admite DNS privado, aplica solo esa configuración autorizada y prueba conectividad, inicio de sesión y reproducción. No afirmes que bloquea publicidad de YouTube. Si falla la red o una app, restaura los valores originales; distingue valores ausentes de cadenas literales.
+Entrega versión instalada, pruebas realizadas, limitaciones y pendientes, ubicación privada de respaldos y pasos de restauración. No declares reanudación, rendimiento o pruebas físicas satisfactorias sin evidencia y mi confirmación cuando corresponda.
 
-Como referencia histórica, en aquel Xiaomi se deshabilitaron estos seis paquetes:
-  com.miui.tv.analytics
-  com.xiaomi.statistic
-  com.mitv.tvhome.oemtab
-  com.mitv.tvhome.michannel
-  com.google.android.apps.tv.launcherx
-  com.google.android.tungsten.setupwraith
-
-Esta lista NO es una receta universal ni una instrucción para deshabilitarlos todos. Los dos últimos están relacionados con HOME/configuración y requieren la revisión del apartado anterior. Verifica que cada paquete existe, su función, dependencias y estado previo en mi equipo. No deshabilites otros componentes por parecido de nombre. Conserva entradas y funciones de otros modelos cuando sean necesarias, aunque esta interfaz no muestre el botón Inputs.
-
-Si autorizo un cambio concreto, usa una operación reversible para el usuario correcto, un paquete por vez, y comprueba el resultado antes del siguiente. Registra cómo devolverlo a su estado anterior; no habilites indiscriminadamente paquetes que ya estaban deshabilitados antes. No uses desinstalación del sistema ni borrado de datos como sustituto.
-
-8. VALIDACIÓN COMPLETA CON EL CONTROL REAL
-
-Comprueba conmigo:
-- Flechas, OK, Atrás, HOME, acceso a Ajustes y navegación entre dock y cuadrícula.
-- Dock en el orden Netflix → TEVEO → Prime Video → YouTube.
-- Fondo, paneles de cristal, enfoque fluido y widget de fútbol pequeño centrado, sin Inputs.
-- Continuar viendo: desplazamiento, app correcta y reanudación de títulos reales disponibles.
-- Fútbol: Hoy/Mañana, detalle, estado vacío y navegación hacia Wi-Fi/Ajustes.
-- Control por voz, botones de acceso directo y volumen, incluyendo pulsación sostenida de subir volumen si el control lo admite.
-- Reproducción real en Netflix, TEVEO, Prime Video y YouTube instalados. No basta con abrir sus pantallas.
-- Wi-Fi/Ethernet, Bluetooth y funciones que utilizo.
-
-Como referencia de navegación: desde Netflix en el dock, arriba entra en la recomendación; desde las demás apps entra en Continuar viendo. Abajo abre la cuadrícula. Desde la recomendación, derecha entra en las continuaciones y OK abre detalles. Desde las tarjetas, arriba va a categorías y abajo al dock. En categorías, izquierda/derecha elige, OK aplica y arriba va al fútbol. En Fútbol, izquierda/derecha cambia Hoy/Mañana; derecha desde Mañana va a Wi-Fi y después a los controles de cabecera. Abajo entra a los partidos si existen o vuelve a Continuar viendo. Atrás regresa al dock.
-
-Reinicia una vez después de los cambios. Pídeme confirmar que HOME sigue abriendo Glass Home y que el control y la reproducción siguen funcionando. Si necesitas volver a conectarte, solicita el puerto inalámbrico actual; no supongas que el anterior sobrevivió. Comprueba que los cambios autorizados persisten y conserva evidencia local sin publicar historial personal.
-
-9. RESTAURACIÓN Y CIERRE
-
-Entrega la ubicación de los respaldos, el resumen de cambios efectivos y los pasos de restauración específicos. Para volver al inicio anterior, usa Ajustes o el componente exacto guardado. En Windows, si existe un respaldo válido del script:
-  .\scripts\restore-home.ps1 -Device IP:PUERTO -BackupFile .\backups\CARPETA\home.json
-
-Si se deshabilitó un paquete autorizado, restaura también su estado anterior cuando corresponda antes de volver a depender de él. Para DNS restaura los valores guardados. No describas el respaldo del APK como respaldo de sus datos privados.
-
-Cuando todo esté validado, guíame para revocar autorizaciones de depuración, desactivar Wireless/USB/Network/ADB debugging donde existan y reiniciar. El launcher no requiere depuración para funcionar. Si compruebas puertos desde el ordenador, distingue rechazo de conexión de un timeout; una prueba de un puerto no demuestra por sí sola que no exista ningún otro abierto.
-
-No publiques mis IP, redes, contraseñas, códigos, cuentas, historiales, respaldos, configuraciones privadas o claves de firma. Si preparo una copia para compartir, incluye únicamente el proyecto público, licencias y documentación. Mantén TEVEO separado.
-
-Al terminar, indica qué quedó instalado y comprobado, las funciones que dependan de terceros y cualquier prueba pendiente. No declares una instalación completa ni una prueba física exitosa sin haberla realizado y recibido mi confirmación cuando haga falta.
+No publiques mis IP, redes, códigos, contraseñas, cuentas, historiales, respaldos ni claves. Si quiero compartir capturas con datos personales, solicita autorización específica indicando qué datos y dónde se publicarán.
 ```

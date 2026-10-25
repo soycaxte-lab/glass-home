@@ -1,0 +1,94 @@
+{
+  "baseline": {
+    "phase": "baseline",
+    "cold_wait_ms": [
+      930,
+      887,
+      845,
+      923,
+      859,
+      906,
+      902,
+      996
+    ],
+    "return_wait_ms": [
+      116,
+      92,
+      45,
+      47,
+      45,
+      30,
+      58,
+      37
+    ],
+    "jank": [
+      {
+        "frames": 638,
+        "janky": 10,
+        "p50_ms": 27,
+        "p95_ms": 32
+      },
+      {
+        "frames": 605,
+        "janky": 15,
+        "p50_ms": 27,
+        "p95_ms": 44
+      },
+      {
+        "frames": 642,
+        "janky": 16,
+        "p50_ms": 27,
+        "p95_ms": 44
+      }
+    ]
+  },
+  "optimized": {
+    "phase": "optimized",
+    "cold_wait_ms": [
+      808,
+      822,
+      837,
+      859,
+      819,
+      803,
+      886,
+      875
+    ],
+    "return_wait_ms": [
+      45,
+      34,
+      42,
+      33,
+      33,
+      34,
+      31,
+      26
+    ],
+    "jank": [
+      {
+        "frames": 657,
+        "janky": 17,
+        "p50_ms": 24,
+        "p95_ms": 26
+      },
+      {
+        "frames": 606,
+        "janky": 11,
+        "p50_ms": 24,
+        "p95_ms": 42
+      },
+      {
+        "frames": 659,
+        "janky": 9,
+        "p50_ms": 24,
+        "p95_ms": 42
+      }
+    ]
+  },
+  "baseline_pss_kib": 156833,
+  "optimized_pss_kib": 137786,
+  "samples_per_startup_case": 8,
+  "navigation_samples": 3,
+  "baseline_code_ref": "7f6e67c",
+  "baseline_note": "1.4.1 source rebuilt with versionCode 11 and a benchmark label to preserve data without an Android downgrade; optimized distribution versionCode 12."
+}

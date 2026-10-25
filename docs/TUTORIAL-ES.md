@@ -2,13 +2,13 @@
 
 Esta guía te acompaña desde la descarga hasta el primer inicio. No necesitas programar. Para el recorrido manual necesitas un ordenador Windows, acceso a Ajustes en la TV y poder copiar algunos comandos. También puedes pedir ayuda a un asistente con acceso a terminal.
 
-**[Descargar el proyecto completo](https://github.com/soycaxte-lab/glass-home/archive/refs/heads/main.zip)** · [Solo el APK 1.4.1](../downloads/GlassHome-1.4.1.apk?raw=true) · [Copiar el prompt para tu asistente](PROMPT-INSTALACION-ES.md)
+**[Descargar el proyecto completo](https://github.com/soycaxte-lab/glass-home/archive/refs/heads/main.zip)** · [Solo el APK 1.5.0](../downloads/GlassHome-1.5.0.apk?raw=true) · [Copiar el prompt para tu asistente](PROMPT-INSTALACION-ES.md)
 
 ## 1. Mira el resultado y comprueba tu equipo
 
 ![Inicio con reloj, fútbol compacto y dock de aplicaciones](screenshots/inicio-hoy.png)
 
-*Captura real de la versión 1.4.1 en el Xiaomi de referencia, sin edición. Continuar viendo se muestra con autorización del propietario.*
+*Captura real del diseño 1.4.1, conservado en la versión 1.5.0, en el Xiaomi de referencia, sin edición. Continuar viendo se muestra con autorización del propietario.*
 
 Glass Home sustituye la pantalla de inicio de **Android TV o Google TV con Android 8.0 o superior**. Incluye la recomendación grande a la izquierda, Continuar viendo a la derecha, el dock de iconos y el fútbol debajo de la fecha que ves aquí. Se probó en un Xiaomi MiTV-AFMU0 con Android 14; otros equipos y controles necesitan sus propias comprobaciones.
 
@@ -33,6 +33,8 @@ No hace falta root ni restablecer la TV. No borres datos ni desinstales el inici
 
 Un asistente que solo conversa, sin acceso al ordenador o a la red local, puede explicarte los pasos, pero no instalarlo por ti. Nunca publiques contraseñas ni códigos temporales de emparejamiento.
 
+El prompt actúa como una guía interactiva: pregunta por conexión, instalación nueva o actualización, apps, fútbol y selección de HOME; inspecciona lo que pueda descubrir por ADB y explica qué preferencias necesitan compilar una variante. No instala automáticamente cambios del sistema ni necesita tus contraseñas de streaming.
+
 ## 3. Prepara los archivos en Windows
 
 1. Descarga el [ZIP del proyecto](https://github.com/soycaxte-lab/glass-home/archive/refs/heads/main.zip) y extráelo. No ejecutes los archivos desde dentro del ZIP.
@@ -45,7 +47,7 @@ La carpeta debe quedar así:
 ```text
 glass-home-main/
   downloads/
-    GlassHome-1.4.1.apk
+    GlassHome-1.5.0.apk
     SHA256SUMS
   docs/
   scripts/
@@ -58,7 +60,7 @@ glass-home-main/
 Comprueba que estás en la carpeta correcta:
 
 ```powershell
-Test-Path .\downloads\GlassHome-1.4.1.apk
+Test-Path .\downloads\GlassHome-1.5.0.apk
 Test-Path .\platform-tools\adb.exe
 ```
 
@@ -67,11 +69,11 @@ Ambos resultados deben decir `True`. Si alguno dice `False`, corrige la ubicaci�
 Verifica que el APK corresponde a la descarga publicada:
 
 ```powershell
-Get-FileHash .\downloads\GlassHome-1.4.1.apk -Algorithm SHA256
+Get-FileHash .\downloads\GlassHome-1.5.0.apk -Algorithm SHA256
 Get-Content .\downloads\SHA256SUMS
 ```
 
-Compara el hash mostrado por Get-FileHash con la fila correspondiente a `GlassHome-1.4.1.apk`: deben coincidir exactamente, sin importar mayúsculas/minúsculas. Si no coinciden, no instales ese archivo. Vuelve a descargar desde el repositorio. Usa el APK distribuido en `downloads`, no un APK de depuración de GitHub Actions, cuya firma puede ser distinta.
+Compara el hash mostrado por Get-FileHash con la fila correspondiente a `GlassHome-1.5.0.apk`: deben coincidir exactamente, sin importar mayúsculas/minúsculas. Si no coinciden, no instales ese archivo. Vuelve a descargar desde el repositorio. Usa el APK distribuido en `downloads`, no un APK de depuración de GitHub Actions, cuya firma puede ser distinta.
 
 ## 4. Activa la depuración en tu Android TV
 
@@ -119,7 +121,7 @@ Desde la carpeta del proyecto, ejecuta el instalador incluido, reemplazando la d
 .\scripts\install.ps1 -Device IP:PUERTO_DE_CONEXION -Adb .\platform-tools\adb.exe
 ```
 
-El script guarda el componente de inicio que resuelve el sistema y una copia del APK de Glass Home si ya estaba instalado. Luego instala y abre el launcher. **Todavía no cambia el inicio predeterminado.** Tampoco deshabilita apps del sistema ni cambia DNS.
+El script verifica el SHA-256 antes de conectar o instalar. Después guarda el usuario Android activo y el componente de inicio que resuelve el sistema y una copia del APK de Glass Home si ya estaba instalado. Luego instala y abre el launcher. **Todavía no cambia el inicio predeterminado.** Tampoco deshabilita apps del sistema ni cambia DNS.
 
 Busca el mensaje de instalación correcta y la ruta del respaldo en `backups`. Consérvalo: contiene `home.json`, que se usará si quieres volver atrás. No es una copia completa de los datos de la TV. Si ya tenías Glass Home como inicio, ese archivo puede señalar Glass Home y no el launcher de fábrica.
 

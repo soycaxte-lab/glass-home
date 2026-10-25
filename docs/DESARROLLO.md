@@ -56,3 +56,15 @@ Sin esas variables, `assembleRelease` puede generar un APK sin firma que no es i
 ## Alcance
 
 Este repositorio contiene el launcher. TEVEO y los otros reproductores evolucionan por separado. Para integrar una app con Continue Watching se necesita que ella publique Android TV Watch Next, sus enlaces de reanudación y el progreso del perfil correcto.
+
+## Regresiones de rendimiento 1.5.0
+
+MainActivity conserva el catálogo mientras vive la actividad y lo invalida por broadcasts de paquetes. Mantiene un adapter de cuadrícula con tipo de vista compartido, fuentes en caché y cargas secundarias diferidas. WatchNextRow reutiliza tarjetas por clave de publicación, actualiza progreso/título y deduplica descargas. RecommendationPanel conserva la recomendación en memoria y muestra disco antes de red. FootballRow evita reconstruir un estado igual y reutiliza los datos en regresos rápidos.
+
+Las comprobaciones Android están en app/src/androidTest/java/local/glasshome/PerformanceChecks.java. Compila con `./gradlew assembleDebug assembleDebugAndroidTest`; instala el APK objetivo y el APK de test firmados con la misma clave, usando `adb -s IP:PUERTO install -t` para el de test. Ejecuta:
+
+```sh
+adb -s IP:PUERTO shell am instrument -w local.glasshome.test/local.glasshome.PerformanceChecks
+```
+
+Comprueban vistas reales: cinco ciclos de pausa/regreso sin recrear dock/adapter ni volver a escanear apps, reciclaje compartido, cambios de progreso/título, foco al reordenar, eliminación y estado vacío. No escriben en el proveedor Watch Next. Las tarjetas sintéticas solo viven durante la prueba; al terminar se recargan los registros compartidos. El APK de test se retira después. CI compila las pruebas; su ejecución física se documenta por separado en [Rendimiento 1.5.0](RENDIMIENTO-1.5.0.md).
