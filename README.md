@@ -1,8 +1,8 @@
 # Glass Home
 
-Un launcher para **Android TV y Google TV** con una recomendación grande a la izquierda, Continuar viendo a la derecha, iconos inspirados en Apple TV, paneles de cristal y fútbol debajo de la fecha. Versión **1.4.1-artwork**.
+Un launcher para **Android TV y Google TV** con una recomendación grande a la izquierda, Continuar viendo a la derecha, iconos inspirados en Apple TV, paneles de cristal y fútbol debajo de la fecha. Versión **1.5.0-fast**.
 
-**[Descargar APK 1.4.1](https://github.com/soycaxte-lab/glass-home/releases/download/v1.4.1/GlassHome-1.4.1.apk)** · [Releases](https://github.com/soycaxte-lab/glass-home/releases/latest) · [Instalación y restauración](docs/INSTALACION.md) · [Compilar y personalizar](docs/DESARROLLO.md)
+**[Descargar APK 1.5.0](https://github.com/soycaxte-lab/glass-home/releases/download/v1.5.0/GlassHome-1.5.0.apk)** · [Releases](https://github.com/soycaxte-lab/glass-home/releases/latest) · [Instalación y restauración](docs/INSTALACION.md) · [Compilar y personalizar](docs/DESARROLLO.md)
 
 **[Copiar el prompt completo en español para tu asistente](docs/PROMPT-INSTALACION-ES.md)**. Incluye la instalación de esta interfaz, configuración, pruebas con el control y restauración. Abre el enlace y copia el bloque completo.
 
@@ -12,9 +12,13 @@ Un launcher para **Android TV y Google TV** con una recomendación grande a la i
 
 ![Glass Home en el Xiaomi: recomendación, Continuar viendo, dock y fútbol de hoy](docs/screenshots/inicio-hoy.png)
 
-Captura real del Xiaomi de referencia, sin edición y con Continuar viendo visible, publicada con autorización de su propietario. Las tarjetas, aplicaciones, recomendaciones y partidos dependen de cada dispositivo y de sus proveedores.
+Captura real del diseño 1.4.1, conservado en la 1.5.0, en el Xiaomi de referencia, sin edición y con Continuar viendo visible, publicada con autorización de su propietario. Las tarjetas, aplicaciones, recomendaciones y partidos dependen de cada dispositivo y de sus proveedores.
 
-**[Ver las capturas de Hoy y Mañana](docs/CAPTURAS.md)** · [Cambios de la versión 1.4.1](docs/NOVEDADES-1.4.1.md)
+**[Ver las capturas de Hoy y Mañana](docs/CAPTURAS.md)** · [Cambios y mediciones de la versión 1.5.0](docs/RENDIMIENTO-1.5.0.md)
+
+## Actualización 1.5.0
+
+Conserva la interfaz y reutiliza el catálogo de aplicaciones, el dock, las tarjetas y las imágenes al volver a Home. Las instalaciones, actualizaciones y eliminaciones de apps invalidan el catálogo. El fútbol y las recomendaciones conservan sus límites de actualización. Consulta las [mediciones y pruebas](docs/RENDIMIENTO-1.5.0.md); no se afirma que sea el launcher más rápido de todos.
 
 ## Qué incluye
 
@@ -38,13 +42,13 @@ Las apps de streaming se instalan por separado; Glass Home no incluye contenido,
 
 ## Instalación rápida con ADB
 
-1. Descarga el [APK](downloads/GlassHome-1.4.1.apk?raw=true) y [Android Platform Tools](https://developer.android.com/tools/releases/platform-tools).
+1. Descarga el [APK](downloads/GlassHome-1.5.0.apk?raw=true) y [Android Platform Tools](https://developer.android.com/tools/releases/platform-tools).
 2. Activa la depuración en la TV y utiliza la dirección **IP:puerto que muestre ahora**. En Android con emparejamiento inalámbrico, empareja primero con el puerto y código de esa pantalla.
 3. Instala y abre el launcher:
 
 ```sh
 adb connect IP:PUERTO
-adb -s IP:PUERTO install -r GlassHome-1.4.1.apk
+adb -s IP:PUERTO install -r GlassHome-1.5.0.apk
 adb -s IP:PUERTO shell pm grant local.glasshome android.permission.READ_TV_LISTINGS
 adb -s IP:PUERTO shell am start -n local.glasshome/.MainActivity
 ```
@@ -81,7 +85,7 @@ No hay analítica propia, servidor propio ni servicio permanente en segundo plan
 
 Java 17, Android SDK 35, Gradle wrapper y AndroidX RecyclerView. [Cómo compilar](docs/DESARROLLO.md).
 
-La versión 1.4.1 se instaló y su imagen completa se revisó en el Xiaomi indicado. En el diseño 1.4 se comprobaron la navegación D-pad, las categorías, los detalles, fútbol, Ajustes y HOME. La distribución pasó `assembleRelease lintRelease` con 0 errores y 26 advertencias. El lector iCalendar incluye 14 comprobaciones reproducibles sin red. Cada usuario debe comprobar fluidez y reanudación con su control y sus apps.
+La versión 1.5.0 conserva el diseño y añade pruebas de regresión en dispositivo para caché de apps, reciclaje de vistas, progreso y foco. El lector iCalendar incluye 14 comprobaciones reproducibles sin red. La metodología, resultados y límites están en [Rendimiento 1.5.0](docs/RENDIMIENTO-1.5.0.md).
 
 Los builds de GitHub Actions son compilaciones de depuración para comprobar el código; sus firmas pueden variar. Para instalar o actualizar la distribución oficial utiliza el APK de `downloads/` y verifica [SHA256SUMS](downloads/SHA256SUMS).
 
