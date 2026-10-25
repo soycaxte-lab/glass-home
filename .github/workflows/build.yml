@@ -24,9 +24,12 @@ jobs:
       - name: Install Android SDK packages
         run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
       - name: Compile and lint
-        run: bash ./gradlew assembleDebug lintDebug --no-daemon
+        run: bash ./gradlew assembleDebug lintDebug assembleDebugAndroidTest --no-daemon
       - name: Check iCalendar parsing
         run: |
           mkdir -p build/fixture-checks
           javac -encoding UTF-8 -d build/fixture-checks app/src/main/java/local/glasshome/FootballFixtures.java checks/FootballFixturesCheck.java
           java -cp build/fixture-checks local.glasshome.FootballFixturesCheck
+      - name: Check PowerShell installer without a device
+        shell: pwsh
+        run: ./checks/InstallerCheck.ps1
