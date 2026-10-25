@@ -27,7 +27,7 @@ final class RecommendationPanel extends LinearLayout {
  private final Handler handler=new Handler(Looper.getMainLooper());
  private final ExecutorService worker=Executors.newSingleThreadExecutor();
  private volatile boolean active;
- private int generation;
+ private int generation; private boolean loading,reloadRequested; private long memoryLoaded,memoryChecked; private LocalDate memoryDay; private int memoryMode=-1;
  private Movie current; private int mode=0; private final TextView heading;
  private Bitmap bitmap;
  private static final class Movie {String name,summary,genre,year,art,url,rights,source;}
@@ -48,16 +48,39 @@ final class RecommendationPanel extends LinearLayout {
  }
  boolean focusCard(){card.requestFocus();return true;}
  void setFilter(int filter){int next=filter==2?2:0;if(next==mode)return;mode=next;current=null;image.setImageDrawable(null);heading.setText(mode==2?"Series para descubrir":"Películas para descubrir");title.setText("Descubre tu próxima "+(mode==2?"serie":"película"));caption.setText("Cargando catálogo…");if(active)start();}
- void start(){active=true;final int gen=++generation;final int selectedMode=mode;worker.execute(()->{
-  if(!active||gen!=generation)return;
-  try{
-   File file=new File(home.getFilesDir(),"discovery-apple-"+(selectedMode==2?"series-us":"movies-es")+".json");String body=null;
-   if(file.isFile())try{body=new String(readFile(file,2*1024*1024),StandardCharsets.UTF_8);parse(body,selectedMode);}catch(Exception ignored){body=null;}
-   long now=System.currentTimeMillis(),last=home.getPreferences(0).getLong("discovery-attempt-"+selectedMode,0);
-   if((body==null||now-file.lastModified()>TTL)&&now-last>RETRY){home.getPreferences(0).edit().putLong("discovery-attempt-"+selectedMode,now).apply();try{String fresh=new String(download(selectedMode==2?"https://itunes.apple.com/us/rss/toptvseasons/limit=25/json":FEED,2*1024*1024),StandardCharsets.UTF_8);parse(fresh,selectedMode);write(file,fresh.getBytes(StandardCharsets.UTF_8));body=fresh;}catch(Exception ignored){}}
-   if(body==null)throw new IOException("Catalog unavailable");Movie movie=parse(body,selectedMode);Bitmap art=loadArt(movie.art,selectedMode);
-   handler.post(()->{if(!active||generation!=gen){if(art!=null)art.recycle();return;}current=movie;image.setImageBitmap(art);bitmap=art;title.setText(movie.name);caption.setText(movie.genre+(movie.year.isEmpty()?"":" · "+movie.year));cta.setVisibility(VISIBLE);card.setContentDescription("Descubrir "+movie.name+", ver detalles del catálogo");});
-  }catch(Exception ignored){handler.post(()->{if(active&&generation==gen&&current==null){caption.setText("Catálogo no disponible; vuelve a intentarlo más tarde");cta.setVisibility(GONE);}});}
+ void start(){
+  active=true;
+  if(current!=null&&bitmap!=null&&memoryMode==mode&&LocalDate.now().equals(memoryDay)&&(SystemClock.elapsedRealtime()-memoryLoaded<TTL||SystemClock.elapsedRealtime()-memoryChecked<60000))return;
+  if(loading){reloadRequested=true;return;}
+  loading=true;reloadRequested=false;memoryChecked=SystemClock.elapsedRealtime();final int gen=++generation;final int selectedMode=mode;
+  worker.execute(()->{
+   try{
+    File file=new File(home.getFilesDir(),"discovery-apple-"+(selectedMode==2?"series-us":"movies-es")+".json");
+    String body=null;Movie cached=null;Bitmap cachedArt=null;
+    if(file.isFile())try{body=new String(readFile(file,2*1024*1024),StandardCharsets.UTF_8);cached=parse(body,selectedMode);cachedArt=loadArt(cached.art,selectedMode);publish(cached,cachedArt,selectedMode,gen);}catch(Exception ignored){body=null;}
+    long now=System.currentTimeMillis(),last=home.getPreferences(0).getLong("discovery-attempt-"+selectedMode,0);
+    if((body==null||now-file.lastModified()>TTL)&&now-last>RETRY){
+     home.getPreferences(0).edit().putLong("discovery-attempt-"+selectedMode,now).apply();
+     try{
+      String fresh=new String(download(selectedMode==2?"https://itunes.apple.com/us/rss/toptvseasons/limit=25/json":FEED,2*1024*1024),StandardCharsets.UTF_8);
+      Movie movie=parse(fresh,selectedMode);Bitmap art=cached!=null&&movie.art.equals(cached.art)?cachedArt:loadArt(movie.art,selectedMode);
+      write(file,fresh.getBytes(StandardCharsets.UTF_8));publish(movie,art,selectedMode,gen);body=fresh;
+     }catch(Exception ignored){}
+    }
+    if(body==null)throw new IOException("Catalog unavailable");
+   }catch(Exception ignored){handler.post(()->{if(active&&generation==gen&&current==null){caption.setText("Catálogo no disponible; vuelve a intentarlo más tarde");cta.setVisibility(GONE);}});}
+   finally{handler.post(()->{loading=false;if(active&&(reloadRequested||generation!=gen))start();});}
+  });
+ }
+ private void publish(Movie movie,Bitmap art,int selectedMode,int gen){handler.post(()->{
+  if(!active||generation!=gen)return;
+  current=movie;if(bitmap!=art){image.setImageBitmap(art);bitmap=art;}
+  title.setText(movie.name);caption.setText(movie.genre+(movie.year.isEmpty()?"":" · "+movie.year));cta.setVisibility(VISIBLE);card.setContentDescription("Descubrir "+movie.name+", ver detalles del catálogo");
+  memoryMode=selectedMode;memoryDay=LocalDate.now();
+  File file=new File(home.getFilesDir(),"discovery-apple-"+(selectedMode==2?"series-us":"movies-es")+".json");
+  long age=Math.max(0,System.currentTimeMillis()-file.lastModified());
+  // Do not give an expired disk cache another full day in memory.
+  memoryLoaded=SystemClock.elapsedRealtime()-Math.min(TTL,age);
  });}
  void stop(){active=false;generation++;}
  void destroy(){stop();worker.shutdownNow();handler.removeCallbacksAndMessages(null);image.setImageDrawable(null);bitmap=null;}

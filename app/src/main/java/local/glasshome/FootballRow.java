@@ -23,7 +23,7 @@ final class FootballRow extends LinearLayout {
  private final TextView source;
  private final ArrayList<FootballFixtures.Match> matches=new ArrayList<>();
  private boolean active=false; private int generation=0,selected=0,available=0,fresh=0;
- private Future<?> pending;
+ private Future<?> pending; private long lastMemoryCheck; private String renderedState="";
  private static final long TTL=6*60*60*1000L,RETRY=15*60*1000L;
  private final Runnable midnight=()->{render();startLoad();scheduleMidnight();};
 
@@ -46,7 +46,7 @@ final class FootballRow extends LinearLayout {
  private void left(){tabs[selected].requestFocus();}
  private void dock(){if(home.watch.focusCard(home.lastDock))return;if(!home.dockTiles.isEmpty())home.dockTiles.get(Math.min(home.lastDock,home.dockTiles.size()-1)).requestFocus();}
  private void styleTabs(){for(int i=0;i<2;i++){boolean f=tabs[i].hasFocus();tabs[i].setBackground(home.surface(12,f,i==selected?0x705574a1:0x103c4863));tabs[i].setTextColor(i==selected?0xffffffff:0xffaebed9);}}
- void start(){active=true;render();startLoad();scheduleMidnight();}
+ void start(){active=true;render();if(lastMemoryCheck==0||SystemClock.elapsedRealtime()-lastMemoryCheck>=60000)startLoad();scheduleMidnight();}
  void stop(){active=false;generation++;handler.removeCallbacks(midnight);if(pending!=null)pending.cancel(true);}
  void destroy(){stop();worker.shutdownNow();}
  private void scheduleMidnight(){handler.removeCallbacks(midnight);long wait=Duration.between(Instant.now(),LocalDate.now().plusDays(1).atStartOfDay(ZoneId.systemDefault()).toInstant()).toMillis();if(active)handler.postDelayed(midnight,Math.max(1000,wait+1000));}
@@ -73,7 +73,7 @@ final class FootballRow extends LinearLayout {
    publish(all,loaded,current,gen);
   });
  }
- private void publish(ArrayList<FootballFixtures.Match> all,int loaded,int current,int gen){ArrayList<FootballFixtures.Match> snapshot=new ArrayList<>(all);handler.post(()->{if(!active||gen!=generation)return;matches.clear();matches.addAll(snapshot);available=loaded;fresh=current;render();});}
+ private void publish(ArrayList<FootballFixtures.Match> all,int loaded,int current,int gen){ArrayList<FootballFixtures.Match> snapshot=new ArrayList<>(all);handler.post(()->{if(!active||gen!=generation)return;matches.clear();matches.addAll(snapshot);available=loaded;fresh=current;lastMemoryCheck=SystemClock.elapsedRealtime();render();});}
  private static String readFile(File f)throws IOException{try(InputStream in=new FileInputStream(f)){return read(in);}}
  private static String read(InputStream in)throws IOException{ByteArrayOutputStream out=new ByteArrayOutputStream();byte[] buffer=new byte[8192];int count;while((count=in.read(buffer))!=-1){if(out.size()+count>2*1024*1024)throw new IOException("Calendar too large");out.write(buffer,0,count);}return out.toString(StandardCharsets.UTF_8.name());}
  private static String download(String link)throws IOException{
@@ -81,8 +81,11 @@ final class FootballRow extends LinearLayout {
   try{if(c.getResponseCode()!=200)throw new IOException("Calendar HTTP "+c.getResponseCode());try(InputStream in=c.getInputStream()){return read(in);}}finally{c.disconnect();}
  }
  private void render(){
-  styleTabs();View focused=home.getCurrentFocus();int focusIndex=cards.indexOf(focused);list.removeAllViews();cards.clear();
-  ZoneId zone=ZoneId.systemDefault();LocalDate day=LocalDate.now(zone).plusDays(selected);List<FootballFixtures.Match> today=FootballFixtures.forDay(matches,day,zone);
+  styleTabs();ZoneId zone=ZoneId.systemDefault();LocalDate day=LocalDate.now(zone).plusDays(selected);List<FootballFixtures.Match> today=FootballFixtures.forDay(matches,day,zone);
+  StringBuilder state=new StringBuilder(day.toString()).append(zone.getId()).append(':').append(available).append(':').append(fresh);
+  for(FootballFixtures.Match m:today)state.append('|').append(m.team).append('|').append(m.title).append('|').append(m.kickoff).append('|').append(m.competition);
+  if(renderedState.contentEquals(state))return;renderedState=state.toString();
+  View focused=home.getCurrentFocus();int focusIndex=cards.indexOf(focused);list.removeAllViews();cards.clear();
   if(today.isEmpty()){
    TextView empty=home.text(available<5?"Calendarios pendientes de actualizar":"Sin partidos "+(selected==0?"hoy":"mañana"),10,0xffd3ddef);empty.setPadding(0,home.dp(3),0,home.dp(3));list.addView(empty);
    TextView teams=home.text("Real Madrid · Bayern · Barcelona\nAtlético Nacional · Colombia",9,0xffaebed9);list.addView(teams);
