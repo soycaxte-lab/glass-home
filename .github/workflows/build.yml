@@ -30,6 +30,11 @@ jobs:
           mkdir -p build/fixture-checks
           javac -encoding UTF-8 -d build/fixture-checks app/src/main/java/local/glasshome/FootballFixtures.java checks/FootballFixturesCheck.java
           java -cp build/fixture-checks local.glasshome.FootballFixturesCheck
+      - name: Check football team selection
+        run: |
+          mkdir -p build/team-checks
+          javac -encoding UTF-8 -d build/team-checks app/src/main/java/local/glasshome/FootballFixtures.java app/src/main/java/local/glasshome/FootballTeams.java checks/FootballTeamsCheck.java
+          java -cp build/team-checks local.glasshome.FootballTeamsCheck
       - name: Check PowerShell installer without a device
         shell: pwsh
         run: ./checks/InstallerCheck.ps1

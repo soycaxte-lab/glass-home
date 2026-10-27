@@ -4,7 +4,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-/** Small iCalendar reader for the five subscribed calendars; no private app data. */
+/** Small iCalendar reader for the selected public subscriptions; no private app data. */
 final class FootballFixtures {
  static final String[] SLUGS={"real-madrid","bayern-munchen","fc-barcelona","atletico-nacional","co"};
  static final String[] NAMES={"Real Madrid","Bayern Múnich","Barcelona","Atlético Nacional","Colombia"};

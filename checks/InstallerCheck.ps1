@@ -4,7 +4,7 @@ $testRoot = Join-Path $repository ('build/installer-check-' + [guid]::NewGuid().
 New-Item -ItemType Directory -Path (Join-Path $testRoot 'scripts'),(Join-Path $testRoot 'downloads') -Force | Out-Null
 Copy-Item -LiteralPath (Join-Path $repository 'scripts/install.ps1') -Destination (Join-Path $testRoot 'scripts/install.ps1')
 Copy-Item -LiteralPath (Join-Path $repository 'scripts/restore-home.ps1') -Destination (Join-Path $testRoot 'scripts/restore-home.ps1')
-$testApk = Join-Path $testRoot 'downloads/GlassHome-1.5.0.apk'
+$testApk = Join-Path $testRoot 'downloads/GlassHome-1.6.0.apk'
 [System.IO.File]::WriteAllText($testApk,'mock APK bytes; never installed on a device')
 $manifest = Join-Path $testRoot 'downloads/SHA256SUMS'
 $global:GlassHomeMockCalls = [System.Collections.Generic.List[string]]::new()
@@ -22,13 +22,13 @@ function global:GlassHomeMockAdb {
 }
 function Assert-Check($condition,$message) { if (!$condition) { throw $message } }
 $install = Join-Path $testRoot 'scripts/install.ps1'
-[System.IO.File]::WriteAllText($manifest,('0' * 64) + '  GlassHome-1.5.0.apk' + "`n")
+[System.IO.File]::WriteAllText($manifest,('0' * 64) + '  GlassHome-1.6.0.apk' + "`n")
 $failed = $false
 try { & $install -Device 'test.invalid:1234' -Adb GlassHomeMockAdb } catch { $failed = $true }
 Assert-Check $failed 'Incorrect checksum accepted'
 Assert-Check ($global:GlassHomeMockCalls.Count -eq 0) 'ADB called before verifying checksum'
 $hash = (Get-FileHash -LiteralPath $testApk -Algorithm SHA256).Hash.ToLowerInvariant()
-[System.IO.File]::WriteAllText($manifest,$hash + '  GlassHome-1.5.0.apk' + "`n")
+[System.IO.File]::WriteAllText($manifest,$hash + '  GlassHome-1.6.0.apk' + "`n")
 & $install -Device 'test.invalid:1234' -Adb GlassHomeMockAdb -SetHome
 Assert-Check (@($global:GlassHomeMockCalls | Where-Object { $_ -match 'set-home-activity --user 10' }).Count -eq 1) 'HOME used wrong user'
 Assert-Check (@($global:GlassHomeMockCalls | Where-Object { $_ -match 'pm grant --user 10' }).Count -eq 1) 'Permission used wrong user'

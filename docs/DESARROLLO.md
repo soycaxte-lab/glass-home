@@ -31,12 +31,13 @@ Hay 14 comprobaciones sin red. Cubren medianoche UTC frente al día local, zonas
 - `app/src/main/res/values/config.xml`: número de slots del dock (4 a 7) y paquetes de apps en orden.
 - `MainActivity.java`: cabecera, fondo, dock y cuadrícula. Fecha centrada arriba y fútbol de 224 × 92 dp debajo; recomendación a la izquierda (54 %) y continuaciones a la derecha (46 %). Wi-Fi y Ajustes quedan a la derecha.
 - `LiquidSurface.java`: superficies de cristal mediante degradados y bordes, sin blur continuo.
-- `FootballFixtures.java`: los cinco identificadores de calendarios y sus etiquetas. Mantén la misma cantidad y el orden entre `SLUGS` y `NAMES` si los cambias; la interfaz actual está configurada para cinco calendarios.
+- `FootballFixtures.java`: lector iCalendar y los cinco favoritos predeterminados, conservados para migración. No representa todos los equipos disponibles.
+- `FootballTeams.java` y `app/src/main/assets/football-teams.tsv`: catálogo local, búsqueda, validación y preferencias. Identificadores únicos y seguros; de uno a cinco favoritos. El widget usa una instantánea de la selección para cada carga y rechaza publicaciones de generaciones anteriores.
 - `FootballRow.java`: presentación y caché de calendario. Respeta el TTL de la fuente y distingue una descarga fallida de un día sin partidos.
 - `RecommendationPanel.java`: feeds públicos de Apple (películas ES, series US), caché de 24 horas, reintentos de 15 minutos, HTTPS con dominios permitidos y detalles con enlace al catálogo. No envía historial ni promete disponibilidad en otros servicios.
 - `WatchNextRow.java`: imágenes completas con FIT_CENTER y ancho calculado según su proporción, limitado al espacio disponible; muestreo hasta 960 × 720. Lectura de listados compartidos. No implementa la publicación que corresponde a cada servicio de streaming.
 
-Los escudos actuales corresponden a los cinco equipos iniciales. Si sustituyes calendarios, actualiza también los identificadores gráficos y sus avisos; no dejes el escudo de otro equipo.
+Los escudos incluidos corresponden a los cinco equipos iniciales y se resuelven por identidad, no por posición de selección. Los demás usan iniciales neutrales. Si amplías el catálogo, conserva el formato TSV y verifica los enlaces del proveedor; no asignes un escudo ajeno.
 
 ## Firmar una distribución
 
@@ -68,3 +69,22 @@ adb -s IP:PUERTO shell am instrument -w local.glasshome.test/local.glasshome.Per
 ```
 
 Comprueban vistas reales: cinco ciclos de pausa/regreso sin recrear dock/adapter ni volver a escanear apps, reciclaje compartido, cambios de progreso/título, foco al reordenar, eliminación y estado vacío. No escriben en el proveedor Watch Next. Las tarjetas sintéticas solo viven durante la prueba; al terminar se recargan los registros compartidos. El APK de test se retira después. CI compila las pruebas; su ejecución física se documenta por separado en [Rendimiento 1.5.0](RENDIMIENTO-1.5.0.md).
+
+## Selector de equipos 1.6.0
+
+El catálogo se lee localmente y precalcula las claves de búsqueda normalizadas. La selección se guarda en preferencias privadas como `football-teams-v1`; si no hay una selección válida se conservan los cinco originales. Cancelar no escribe, Originales prepara un borrador y Guardar valida uno a cinco identificadores. Cachés y reintentos se identifican por slug; un resultado de una selección anterior no sustituye la actual.
+
+Pruebas de modelo sin red:
+
+```sh
+javac -encoding UTF-8 -d build/team-checks app/src/main/java/local/glasshome/FootballFixtures.java app/src/main/java/local/glasshome/FootballTeams.java checks/FootballTeamsCheck.java
+java -cp build/team-checks local.glasshome.FootballTeamsCheck
+```
+
+Pruebas del diálogo real, después de instalar los APK objetivo y de test con la misma firma:
+
+```sh
+adb -s IP:PUERTO shell am instrument -w -e suite teams local.glasshome.test/local.glasshome.PerformanceChecks
+```
+
+Comprueban búsqueda, cancelación, guardado desde un filtro, selección recuperada, límite de cinco, borrador Originales, rechazo del vacío y persistencia al recrear la actividad. Restauran las preferencias al terminar. Más detalles en [Equipos](EQUIPOS.md).

@@ -1,7 +1,7 @@
 param(
  [string]$Device,
  [string]$Adb = 'adb',
- [string]$Apk = (Join-Path $PSScriptRoot '../downloads/GlassHome-1.5.0.apk'),
+ [string]$Apk = (Join-Path $PSScriptRoot '../downloads/GlassHome-1.6.0.apk'),
  [string]$ChecksumFile = (Join-Path $PSScriptRoot '../downloads/SHA256SUMS'),
  [switch]$SetHome
 )

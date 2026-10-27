@@ -1,8 +1,8 @@
 # Glass Home
 
-Un launcher para **Android TV y Google TV** con una recomendación grande a la izquierda, Continuar viendo a la derecha, iconos inspirados en Apple TV, paneles de cristal y fútbol debajo de la fecha. Versión **1.5.0-fast**.
+Un launcher para **Android TV y Google TV** con una recomendación grande a la izquierda, Continuar viendo a la derecha, iconos inspirados en Apple TV, paneles de cristal y fútbol debajo de la fecha. Versión **1.6.0-teams**.
 
-**[Descargar APK 1.5.0](https://github.com/soycaxte-lab/glass-home/releases/download/v1.5.0/GlassHome-1.5.0.apk)** · [Releases](https://github.com/soycaxte-lab/glass-home/releases/latest) · [Instalación y restauración](docs/INSTALACION.md) · [Compilar y personalizar](docs/DESARROLLO.md)
+**[Descargar APK 1.6.0](https://github.com/soycaxte-lab/glass-home/releases/download/v1.6.0/GlassHome-1.6.0.apk)** · [Releases](https://github.com/soycaxte-lab/glass-home/releases/latest) · [Instalación y restauración](docs/INSTALACION.md) · [Compilar y personalizar](docs/DESARROLLO.md)
 
 **[Copiar el prompt completo en español para tu asistente](docs/PROMPT-INSTALACION-ES.md)**. Incluye la instalación de esta interfaz, configuración, pruebas con el control y restauración. Abre el enlace y copia el bloque completo.
 
@@ -12,11 +12,15 @@ Un launcher para **Android TV y Google TV** con una recomendación grande a la i
 
 ![Glass Home en el Xiaomi: recomendación, Continuar viendo, dock y fútbol de hoy](docs/screenshots/inicio-hoy.png)
 
-Captura real del diseño 1.4.1, conservado en la 1.5.0, en el Xiaomi de referencia, sin edición y con Continuar viendo visible, publicada con autorización de su propietario. Las tarjetas, aplicaciones, recomendaciones y partidos dependen de cada dispositivo y de sus proveedores.
+Captura real del diseño 1.4.1, conservado en la 1.6.0, que añade el selector de equipos, en el Xiaomi de referencia, sin edición y con Continuar viendo visible, publicada con autorización de su propietario. Las tarjetas, aplicaciones, recomendaciones y partidos dependen de cada dispositivo y de sus proveedores.
 
 **[Ver las capturas de Hoy y Mañana](docs/CAPTURAS.md)** · [Cambios y mediciones de la versión 1.5.0](docs/RENDIMIENTO-1.5.0.md)
 
-## Actualización 1.5.0
+## Equipos personalizables en la 1.6.0
+
+Abre **Fútbol → ⚙ → Mis equipos de fútbol**, busca por nombre o país, elige de uno a cinco favoritos y pulsa **Guardar**. Hay 296 clubes y selecciones en el catálogo incluido. Cambiar equipos ya no requiere compilar otra APK. **Originales** prepara los cinco iniciales y **Cancelar** descarta los cambios. [Guía del selector](docs/EQUIPOS.md).
+
+## Rendimiento desde la 1.5.0
 
 Conserva la interfaz y reutiliza el catálogo de aplicaciones, el dock, las tarjetas y las imágenes al volver a Home. Las instalaciones, actualizaciones y eliminaciones de apps invalidan el catálogo. El fútbol y las recomendaciones conservan sus límites de actualización. Consulta las [mediciones y pruebas](docs/RENDIMIENTO-1.5.0.md); no se afirma que sea el launcher más rápido de todos.
 
@@ -30,6 +34,7 @@ Conserva la interfaz y reutiliza el catálogo de aplicaciones, el dock, las tarj
 - Continue Watching mediante **Android TV Watch Next**: títulos, progreso y enlaces de reanudación publicados por las apps compatibles.
 - Carteles de Continuar viendo con ancho adaptable a su proporción y la imagen completa; las siguientes tarjetas se recorren con las flechas.
 - Fútbol en una tarjeta de 224 × 92 dp centrada debajo de la fecha, con pestañas Hoy/Mañana y horarios según la zona de la TV.
+- Selector de hasta cinco favoritos, con búsqueda sin conexión, guardado local y restauración de originales.
 - Calendarios iniciales: Real Madrid, Bayern Múnich, Barcelona, Atlético Nacional y selección de Colombia.
 
 ## Compatibilidad
@@ -42,13 +47,13 @@ Las apps de streaming se instalan por separado; Glass Home no incluye contenido,
 
 ## Instalación rápida con ADB
 
-1. Descarga el [APK](downloads/GlassHome-1.5.0.apk?raw=true) y [Android Platform Tools](https://developer.android.com/tools/releases/platform-tools).
+1. Descarga el [APK](downloads/GlassHome-1.6.0.apk?raw=true) y [Android Platform Tools](https://developer.android.com/tools/releases/platform-tools).
 2. Activa la depuración en la TV y utiliza la dirección **IP:puerto que muestre ahora**. En Android con emparejamiento inalámbrico, empareja primero con el puerto y código de esa pantalla.
 3. Instala y abre el launcher:
 
 ```sh
 adb connect IP:PUERTO
-adb -s IP:PUERTO install -r GlassHome-1.5.0.apk
+adb -s IP:PUERTO install -r GlassHome-1.6.0.apk
 adb -s IP:PUERTO shell pm grant local.glasshome android.permission.READ_TV_LISTINGS
 adb -s IP:PUERTO shell am start -n local.glasshome/.MainActivity
 ```
@@ -65,7 +70,7 @@ Comprueba la navegación antes de seleccionar Glass Home como inicio predetermin
 | Recomendación | OK abre detalles; → entra en Continuar viendo; ↑ va a las categorías; ↓ vuelve al dock |
 | Continuar viendo | ←/→ recorre títulos; ← desde el primero vuelve a la recomendación; ↑ va a categorías; ↓ vuelve al dock |
 | Categorías | ←/→ elige y OK aplica; ↑ va a fútbol; ↓ a la recomendación |
-| Fútbol | ←/→ cambia Hoy/Mañana; → desde Mañana pasa a Wi-Fi |
+| Fútbol | ←/→ cambia Hoy/Mañana; → desde Mañana pasa a Equipos y luego a Wi-Fi |
 | Hoy/Mañana | ↓ entra en los partidos; si no hay, vuelve a Continue Watching |
 | Partido | OK abre su detalle; ↓ desde el último vuelve a Continue Watching |
 | Wi-Fi/Ajustes | ←/→ cambia de control; ← desde Wi-Fi regresa a Fútbol |

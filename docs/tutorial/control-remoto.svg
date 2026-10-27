@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
-<title id="title">Control remoto de Glass Home 1.4.1</title>
+<title id="title">Control remoto de Glass Home 1.6.0</title>
 <desc id="desc">Desde Netflix, arriba lleva a la recomendación; desde las otras apps, a Continuar viendo. Arriba desde las tarjetas va a categorías y desde categorías al fútbol. Abajo desde el dock abre todas las apps.</desc>
 <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#282251"/><stop offset="1" stop-color="#103b53"/></linearGradient></defs>
 <rect width="1200" height="700" rx="28" fill="url(#bg)"/>
 <g font-family="Arial,sans-serif" text-anchor="middle" fill="#f1f5ff">
-<text x="600" y="52" font-size="30" font-weight="700">Glass Home 1.4.1 · Control remoto</text>
+<text x="600" y="52" font-size="30" font-weight="700">Glass Home 1.6.0 · Control remoto</text>
 <text x="600" y="88" font-size="20">Esquema de navegación · No es una captura</text>
 <g fill="#ffffff" fill-opacity=".08" stroke="#a7b8d5">
 <rect x="315" y="112" width="410" height="74" rx="18"/><rect x="805" y="112" width="345" height="74" rx="18"/>
@@ -13,7 +13,7 @@
 <rect x="160" y="490" width="880" height="82" rx="20"/><rect x="365" y="615" width="470" height="60" rx="18"/>
 </g>
 <text x="520" y="143" font-size="23">Fútbol · Hoy / Mañana</text><text x="520" y="172" font-size="17">← → cambia · ↓ entra en partidos</text>
-<text x="977" y="143" font-size="22">Wi-Fi · Fútbol · Ajustes</text><text x="977" y="171" font-size="17">→ desde Mañana</text><text x="763" y="156" font-size="27">→</text>
+<text x="977" y="143" font-size="18">Equipos → Wi-Fi → Ajustes</text><text x="977" y="171" font-size="17">→ desde Mañana</text><text x="763" y="156" font-size="27">→</text>
 <text x="600" y="215" font-size="24">↑</text><text x="600" y="252" font-size="23">Explorar · Películas · Series</text><text x="600" y="279" font-size="17">← → elige · OK aplica · ↑ fútbol · ↓ recomendación</text>
 <text x="320" y="327" font-size="25">↑</text><text x="880" y="327" font-size="25">↑</text>
 <text x="320" y="376" font-size="24">Recomendación</text><text x="320" y="408" font-size="18">OK abre detalles</text>

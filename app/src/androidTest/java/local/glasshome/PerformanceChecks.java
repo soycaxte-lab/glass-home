@@ -10,12 +10,12 @@ import java.util.*;
 
 /** Device regression checks: actual views, lifecycle and keyed updates; no provider writes. */
 public final class PerformanceChecks extends Instrumentation {
- private int checks;
+ private int checks; private boolean teamsOnly;
  private static void require(boolean value,String message){if(!value)throw new AssertionError(message);}
  private static Object field(Object value,String name)throws Exception{Field f=value.getClass().getDeclaredField(name);f.setAccessible(true);return f.get(value);}
  private static void set(Object object,String name,Object value)throws Exception{Field f=object.getClass().getDeclaredField(name);f.setAccessible(true);f.set(object,value);}
- public void onCreate(Bundle args){super.onCreate(args);start();}
- public void onStart(){Bundle result=new Bundle();MainActivity home=null;try{
+ public void onCreate(Bundle args){super.onCreate(args);teamsOnly="teams".equals(args.getString("suite"));start();}
+ public void onStart(){if(teamsOnly){Bundle result=new Bundle();try{result.putString("result",TeamSelectionChecks.run(this));finish(Activity.RESULT_OK,result);}catch(Throwable t){result.putString("failure",t.toString());finish(Activity.RESULT_CANCELED,result);}return;}Bundle result=new Bundle();MainActivity home=null;try{
   home=(MainActivity)startActivitySync(new Intent(getTargetContext(),MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
   final MainActivity activity=home;
   long deadline=SystemClock.uptimeMillis()+10000;

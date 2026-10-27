@@ -2,13 +2,13 @@
 
 Esta guía te acompaña desde la descarga hasta el primer inicio. No necesitas programar. Para el recorrido manual necesitas un ordenador Windows, acceso a Ajustes en la TV y poder copiar algunos comandos. También puedes pedir ayuda a un asistente con acceso a terminal.
 
-**[Descargar el proyecto completo](https://github.com/soycaxte-lab/glass-home/archive/refs/heads/main.zip)** · [Solo el APK 1.5.0](../downloads/GlassHome-1.5.0.apk?raw=true) · [Copiar el prompt para tu asistente](PROMPT-INSTALACION-ES.md)
+**[Descargar el proyecto completo](https://github.com/soycaxte-lab/glass-home/archive/refs/heads/main.zip)** · [Solo el APK 1.6.0](../downloads/GlassHome-1.6.0.apk?raw=true) · [Copiar el prompt para tu asistente](PROMPT-INSTALACION-ES.md)
 
 ## 1. Mira el resultado y comprueba tu equipo
 
 ![Inicio con reloj, fútbol compacto y dock de aplicaciones](screenshots/inicio-hoy.png)
 
-*Captura real del diseño 1.4.1, conservado en la versión 1.5.0, en el Xiaomi de referencia, sin edición. Continuar viendo se muestra con autorización del propietario.*
+*Captura real del diseño 1.4.1, conservado en la versión 1.6.0, en el Xiaomi de referencia, sin edición. Continuar viendo se muestra con autorización del propietario.*
 
 Glass Home sustituye la pantalla de inicio de **Android TV o Google TV con Android 8.0 o superior**. Incluye la recomendación grande a la izquierda, Continuar viendo a la derecha, el dock de iconos y el fútbol debajo de la fecha que ves aquí. Se probó en un Xiaomi MiTV-AFMU0 con Android 14; otros equipos y controles necesitan sus propias comprobaciones.
 
@@ -33,7 +33,7 @@ No hace falta root ni restablecer la TV. No borres datos ni desinstales el inici
 
 Un asistente que solo conversa, sin acceso al ordenador o a la red local, puede explicarte los pasos, pero no instalarlo por ti. Nunca publiques contraseñas ni códigos temporales de emparejamiento.
 
-El prompt actúa como una guía interactiva: pregunta por conexión, instalación nueva o actualización, apps, fútbol y selección de HOME; inspecciona lo que pueda descubrir por ADB y explica qué preferencias necesitan compilar una variante. No instala automáticamente cambios del sistema ni necesita tus contraseñas de streaming.
+El prompt actúa como una guía interactiva: pregunta por conexión, instalación nueva o actualización, apps, equipos favoritos y selección de HOME; inspecciona lo que pueda descubrir por ADB y explica qué preferencias necesitan compilar una variante. No instala automáticamente cambios del sistema ni necesita tus contraseñas de streaming.
 
 ## 3. Prepara los archivos en Windows
 
@@ -47,7 +47,7 @@ La carpeta debe quedar así:
 ```text
 glass-home-main/
   downloads/
-    GlassHome-1.5.0.apk
+    GlassHome-1.6.0.apk
     SHA256SUMS
   docs/
   scripts/
@@ -60,7 +60,7 @@ glass-home-main/
 Comprueba que estás en la carpeta correcta:
 
 ```powershell
-Test-Path .\downloads\GlassHome-1.5.0.apk
+Test-Path .\downloads\GlassHome-1.6.0.apk
 Test-Path .\platform-tools\adb.exe
 ```
 
@@ -69,11 +69,11 @@ Ambos resultados deben decir `True`. Si alguno dice `False`, corrige la ubicaci�
 Verifica que el APK corresponde a la descarga publicada:
 
 ```powershell
-Get-FileHash .\downloads\GlassHome-1.5.0.apk -Algorithm SHA256
+Get-FileHash .\downloads\GlassHome-1.6.0.apk -Algorithm SHA256
 Get-Content .\downloads\SHA256SUMS
 ```
 
-Compara el hash mostrado por Get-FileHash con la fila correspondiente a `GlassHome-1.5.0.apk`: deben coincidir exactamente, sin importar mayúsculas/minúsculas. Si no coinciden, no instales ese archivo. Vuelve a descargar desde el repositorio. Usa el APK distribuido en `downloads`, no un APK de depuración de GitHub Actions, cuya firma puede ser distinta.
+Compara el hash mostrado por Get-FileHash con la fila correspondiente a `GlassHome-1.6.0.apk`: deben coincidir exactamente, sin importar mayúsculas/minúsculas. Si no coinciden, no instales ese archivo. Vuelve a descargar desde el repositorio. Usa el APK distribuido en `downloads`, no un APK de depuración de GitHub Actions, cuya firma puede ser distinta.
 
 ## 4. Activa la depuración en tu Android TV
 
@@ -179,9 +179,13 @@ Los equipos iniciales son Real Madrid, Bayern Múnich, Barcelona, Atlético Naci
 
 *Captura real histórica sin edición. «Sin partidos mañana» era el resultado al tomarla; no es una afirmación sobre la fecha actual.*
 
-Si no hay partidos publicados, el panel muestra ese estado. Comprueba que la fecha y la zona horaria de la TV sean correctas. Esta versión no incluye una pantalla para elegir equipos; cambiarlos requiere modificar y compilar el código, como explica la [guía de desarrollo](DESARROLLO.md).
+Si no hay partidos publicados, el panel muestra ese estado. Comprueba que la fecha y la zona horaria de la TV sean correctas. Para cambiarlos, abre **Fútbol → ⚙ → Mis equipos de fútbol**. Busca por nombre o país, desmarca alguno si ya tienes cinco, marca tus nuevos favoritos y pulsa **Guardar**. **Originales** recupera la selección inicial antes de guardar; **Cancelar** conserva la anterior. La selección sobrevive al cerrar o actualizar el launcher. Consulta la [guía de equipos](EQUIPOS.md).
 
 Antes de continuar, prueba también Ajustes, la voz, volumen, botones de acceso directo y reproducción real en tus servicios. Conserva el control físico a mano.
+
+![Selector real de equipos en un emulador Android TV](screenshots/selector-equipos.png)
+
+*Captura del selector en un emulador de Android TV. El catálogo y los favoritos se eligen en la app; no es una foto del Xiaomi.*
 
 ## 8. Haz que HOME abra Glass Home
 

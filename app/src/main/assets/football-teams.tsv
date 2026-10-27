@@ -1,0 +1,298 @@
+# Fixtur.es public team identifiers and names; see docs/EQUIPOS.md.
+slug	name	group
+fc-union-berlin	1. FC Union Berlin	Alemania
+1fc-koln	1.FC Köln	Alemania
+1899-hoffenheim	1899 Hoffenheim	Alemania
+bayer-leverkusen	Bayer Leverkusen	Alemania
+bayern-munchen	Bayern Múnich	Alemania
+borussia-dortmund	Borussia Dortmund	Alemania
+borussia-monchengladbach	Borussia Mönchengladbach	Alemania
+eintracht-frankfurt	Eintracht Frankfurt	Alemania
+fc-augsburg	FC Augsburg	Alemania
+fc-schalke-04	FC Schalke 04	Alemania
+fsv-mainz-05	FSV Mainz 05	Alemania
+hamburger-sv	Hamburger SV	Alemania
+rb-leipzig	RB Leipzig	Alemania
+sc-freiburg	SC Freiburg	Alemania
+sc-paderborn-07	SC Paderborn 07	Alemania
+sv-elversberg	SV Elversberg	Alemania
+vfb-stuttgart	VfB Stuttgart	Alemania
+werder-bremen	Werder Bremen	Alemania
+aldosivi	Aldosivi	Argentina
+argentinos-juniors	Argentinos Juniors	Argentina
+atletico-huracan	Atletico Huracan	Argentina
+atletico-tucuman	Atletico Tucuman	Argentina
+banfield	Banfield	Argentina
+barracas-central	Barracas Central	Argentina
+boca-juniors	Boca Juniors	Argentina
+ca-belgrano	CA Belgrano	Argentina
+ca-tigre	CA Tigre	Argentina
+central-cordoba-santiago-del-estero	Central Córdoba (Santiago del Estero)	Argentina
+defensa-y-justicia	Defensa y Justicia	Argentina
+deportivo-riestra	Deportivo Riestra	Argentina
+estudiantes	Estudiantes	Argentina
+estudiantes-rio-cuarto	Estudiantes Río Cuarto	Argentina
+gimnasia-esgrima-la-plata	Gimnasia Esgrima La Plata	Argentina
+gimnasia-mendoza	Gimnasia Mendoza	Argentina
+independiente	Independiente	Argentina
+independiente-rivadavia	Independiente Rivadavia	Argentina
+instituto-cordoba	Instituto Cordoba	Argentina
+lanus	Lanus	Argentina
+newells-old-boys	Newell's Old Boys	Argentina
+platense	Platense	Argentina
+racing-club	Racing Club	Argentina
+river-plate	River Plate	Argentina
+rosario-central	Rosario Central	Argentina
+san-lorenzo	San Lorenzo	Argentina
+sarmiento	Sarmiento	Argentina
+talleres-cordoba	Talleres Córdoba	Argentina
+union-santa-fe	Unión Santa Fe	Argentina
+velez-sarsfield	Velez Sarsfield	Argentina
+atletico-mineiro	Atlético Mineiro	Brasil
+atletico-paranaense	Atlético Paranaense	Brasil
+ec-bahia	Bahia	Brasil
+botafogo	Botafogo	Brasil
+bragantino	Bragantino	Brasil
+chapecoense-af	Chapecoense	Brasil
+sc-corinthians	Corinthians	Brasil
+coritiba	Coritiba	Brasil
+cruzeiro-ec	Cruzeiro	Brasil
+cr-flamengo	Flamengo	Brasil
+fluminense-fc	Fluminense	Brasil
+gremio-porto-alegre	Grêmio	Brasil
+scinternacional	Internacional	Brasil
+mirassol	Mirassol	Brasil
+palmeiras-sao-paulo	Palmeiras	Brasil
+remo	Remo	Brasil
+fc-santos	Santos	Brasil
+sao-paulo-fc	São Paulo	Brasil
+vasco-da-gama	Vasco da Gama	Brasil
+ec-vitoria	Vitória	Brasil
+audax-italiano	Audax Italiano	Chile
+cobresal	Cobresal	Chile
+colo-colo	Colo Colo	Chile
+concepcion	Concepción	Chile
+coquimbo-unido	Coquimbo Unido	Chile
+deportes-limache	Deportes Limache	Chile
+everton-de-vina-del-mar	Everton de Viña del Mar	Chile
+huachipato	Huachipato	Chile
+la-serena	La Serena	Chile
+ohiggins	O'Higgins	Chile
+palestino	Palestino	Chile
+union-la-calera	Union La Calera	Chile
+univ-concepcion	Univ. Concepción	Chile
+universidad-catolica	Universidad Catolica	Chile
+universidad-chile	Universidad Chile	Chile
+nublense	Ñublense	Chile
+alianza-petrolera	Alianza Petrolera	Colombia
+america	América de Cali	Colombia
+atletico-nacional	Atlético Nacional	Colombia
+bucaramanga	Bucaramanga	Colombia
+chico-fc	Chicó FC	Colombia
+cucuta-deportivo	Cúcuta Deportivo	Colombia
+deportes-tolima	Deportes Tolima	Colombia
+deportes-cali	Deportivo Cali	Colombia
+deportes-pasto	Deportivo Pasto	Colombia
+deportivo-pereira	Deportivo Pereira	Colombia
+fortaleza-fc	Fortaleza CEIF	Colombia
+independiente-medellin	Independiente Medellín	Colombia
+jaguares	Jaguares	Colombia
+junior-fc	Junior FC	Colombia
+la-equidad	La Equidad	Colombia
+llaneros	Llaneros	Colombia
+millonarios	Millonarios	Colombia
+once-caldas	Once Caldas	Colombia
+rionegro	Rionegro	Colombia
+santa-fe	Santa Fe	Colombia
+aberdeen	Aberdeen	Escocia
+celtic	Celtic	Escocia
+dundee-fc	Dundee FC	Escocia
+dundee-united	Dundee United	Escocia
+falkirk	Falkirk	Escocia
+heart-of-midlothian	Heart of Midlothian	Escocia
+hibernian	Hibernian	Escocia
+kilmarnock	Kilmarnock	Escocia
+motherwell	Motherwell	Escocia
+rangers	Rangers	Escocia
+st-mirren	St Mirren	Escocia
+st-johnstone	St. Johnstone	Escocia
+athletic-bilbao	Athletic de Bilbao	España
+atletico-madrid	Atlético Madrid	España
+fc-barcelona	Barcelona	España
+ca-osasuna	CA Osasuna	España
+celta-de-vigo	Celta de Vigo	España
+deportivo-alaves	Deportivo Alavés	España
+elche-cf	Elche CF	España
+espanyol	Espanyol	España
+getafe	Getafe	España
+levante	Levante	España
+malaga	Malaga	España
+deportivo-la-coruna	RC Deportivo	España
+real-racing-santander	Racing de Santander	España
+rayo-vallecano	Rayo Vallecano	España
+real-betis-sevilla	Real Betis	España
+real-madrid	Real Madrid	España
+real-sociedad	Real Sociedad	España
+sevilla	Sevilla FC	España
+valencia	Valencia	España
+villarreal	Villarreal	España
+atlanta-united-fc	Atlanta United FC	Estados Unidos
+austin-fc	Austin FC	Estados Unidos
+cf-montreal	CF Montréal	Estados Unidos
+charlotte-fc	Charlotte FC	Estados Unidos
+chicago-fire	Chicago Fire	Estados Unidos
+colorado-rapids	Colorado Rapids	Estados Unidos
+columbus-crew	Columbus Crew	Estados Unidos
+dc-united	D.C. United	Estados Unidos
+fc-cincinnati	FC Cincinnati	Estados Unidos
+fc-dallas	FC Dallas	Estados Unidos
+houston-dynamo	Houston Dynamo	Estados Unidos
+inter-miami-cf	Inter Miami CF	Estados Unidos
+liga-mx-all-stars	Liga MX All-Stars	Estados Unidos
+los-angeles-football-club	Los Angeles Football Club	Estados Unidos
+los-angeles-galaxy	Los Angeles Galaxy	Estados Unidos
+mls-all-stars	MLS All-Stars	Estados Unidos
+minnesota-united-fc	Minnesota United FC	Estados Unidos
+nashville-mls	Nashville SC	Estados Unidos
+new-england-revolution	New England Revolution	Estados Unidos
+new-york-city-fc	New York City FC	Estados Unidos
+new-york-red-bulls	New York Red Bulls	Estados Unidos
+orlando-city-sc	Orlando City SC	Estados Unidos
+philadelphia-union	Philadelphia Union	Estados Unidos
+portland-timbers	Portland Timbers	Estados Unidos
+real-salt-lake	Real Salt Lake	Estados Unidos
+san-diego	San Diego FC	Estados Unidos
+san-jose-earthquakes	San Jose Earthquakes	Estados Unidos
+seattle-sounders-fc	Seattle Sounders FC	Estados Unidos
+sporting-kansas-city	Sporting Kansas City	Estados Unidos
+st-louis-city	St. Louis City	Estados Unidos
+toronto-fc	Toronto FC	Estados Unidos
+vancouver-whitecaps	Vancouver Whitecaps	Estados Unidos
+as-monaco	AS Monaco	Francia
+angers-sco	Angers SCO	Francia
+auxerre	Auxerre	Francia
+estac-troyes	Estac Troyes	Francia
+le-havre	Le Havre	Francia
+le-mans	Le Mans	Francia
+lens	Lens	Francia
+lille	Lille	Francia
+lorient	Lorient	Francia
+ogc-nice	OGC Nice	Francia
+olympique-lyon	Olympique Lyonnais	Francia
+olympique-marseille	Olympique Marseille	Francia
+paris-fc	Paris FC	Francia
+paris-saint-germain	Paris Saint-Germain	Francia
+rc-strasbourg	RC Strasbourg	Francia
+stade-brestois-29	Stade Brestois 29	Francia
+stade-rennes	Stade Rennais	Francia
+toulouse	Toulouse	Francia
+afc-bournemouth	AFC Bournemouth	Inglaterra
+arsenal	Arsenal	Inglaterra
+aston-villa	Aston Villa	Inglaterra
+brentford-fc	Brentford FC	Inglaterra
+brighton-hove-albion-fc	Brighton & Hove Albion FC	Inglaterra
+chelsea	Chelsea	Inglaterra
+coventry-city	Coventry City	Inglaterra
+crystal-palace	Crystal Palace	Inglaterra
+everton	Everton	Inglaterra
+fulham	Fulham	Inglaterra
+hull-city	Hull City	Inglaterra
+ipswich-town	Ipswich Town	Inglaterra
+leeds-united	Leeds United	Inglaterra
+liverpool	Liverpool	Inglaterra
+manchester-city	Manchester City	Inglaterra
+manchester-united	Manchester United	Inglaterra
+newcastle-united	Newcastle United	Inglaterra
+nottingham-forest	Nottingham Forest	Inglaterra
+sunderland	Sunderland	Inglaterra
+tottenham-hotspur	Tottenham Hotspur	Inglaterra
+ac-milan	AC Milan	Italia
+ss-monza	AC Monza	Italia
+as-roma	AS Roma	Italia
+atalanta	Atalanta	Italia
+bologna	Bologna	Italia
+cagliari	Cagliari	Italia
+como	Como	Italia
+cremonese	Cremonese	Italia
+fc-genoa	FC Genoa	Italia
+fiorentina	Fiorentina	Italia
+frosinone	Frosinone	Italia
+hellas-verona-fc	Hellas Verona FC	Italia
+inter	Inter	Italia
+juventus	Juventus	Italia
+lecce	Lecce	Italia
+napoli	Napoli	Italia
+parma	Parma	Italia
+pisa	Pisa	Italia
+lazio-roma	S.S. Lazio	Italia
+torino	Torino	Italia
+us-sassuolo-calcio	US Sassuolo	Italia
+udinese	Udinese	Italia
+venezia	Venezia	Italia
+atlante-fc	Atlante FC	México
+atlas-fc	Atlas FC	México
+atletico-san-luis	Atlético San Luis	México
+cf-america	CF América	México
+cf-monterrey	CF Monterrey	México
+club-leon	Club León	México
+club-tijuana	Club Tijuana	México
+cruz-azul-fc	Cruz Azul FC	México
+guadalajara	Guadalajara	México
+juarez	Juárez	México
+necaxa	Necaxa	México
+pachuca	Pachuca	México
+puebla-fc	Puebla FC	México
+pumas-unam	Pumas UNAM	México
+queretaro-fc	Queretaro FC	México
+santos-laguna	Santos Laguna	México
+tigres-uanl	Tigres UANL	México
+toluca	Toluca	México
+academico-viseu	Academico Viseu	Portugal
+alverca	Alverca	Portugal
+benfica	Benfica	Portugal
+nacional	CD Nacional	Portugal
+casa-pia	Casa Pia	Portugal
+estoril	Estoril	Portugal
+estrela	Estrela	Portugal
+fc-arouca	FC Arouca	Portugal
+fc-famalicao	FC Famalicão	Portugal
+fc-porto	FC Porto	Portugal
+gil-vicente	Gil Vicente	Portugal
+maritimo	Maritimo	Portugal
+moreirense	Moreirense	Portugal
+rio-ave	Rio Ave	Portugal
+santa-clara	Santa Clara	Portugal
+braga	Sporting Braga	Portugal
+sporting-portugal	Sporting Portugal	Portugal
+vitoria-guimaraes	Vitoria Guimaraes	Portugal
+de	Selección de Alemania	Selecciones
+ar	Selección de Argentina	Selecciones
+br	Selección de Brasil	Selecciones
+cl	Selección de Chile	Selecciones
+co	Selección de Colombia	Selecciones
+gb-sct	Selección de Escocia	Selecciones
+es	Selección de España	Selecciones
+us	Selección de Estados Unidos	Selecciones
+fr	Selección de Francia	Selecciones
+gb-eng	Selección de Inglaterra	Selecciones
+it	Selección de Italia	Selecciones
+mx	Selección de México	Selecciones
+nl	Selección de Países Bajos	Selecciones
+pt	Selección de Portugal	Selecciones
+uy	Selección de Uruguay	Selecciones
+albion	Albion	Uruguay
+boston-river	Boston River	Uruguay
+central-espanol	Central Español	Uruguay
+cerro	Cerro	Uruguay
+cerro-largo	Cerro Largo	Uruguay
+club-nacional	Club Nacional de Football	Uruguay
+danubio	Danubio	Uruguay
+defensor-sporting	Defensor Sporting	Uruguay
+deportivo-maldonado	Deportivo Maldonado	Uruguay
+juventud	Juventud	Uruguay
+liverpool-montevideo	Liverpool Montevideo	Uruguay
+penarol	Penarol	Uruguay
+progreso	Progreso	Uruguay
+racing-club-de-montevideo	Racing Club de Montevideo	Uruguay
+torque	Torque	Uruguay
+wanderers	Wanderers	Uruguay

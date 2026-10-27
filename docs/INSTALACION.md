@@ -19,7 +19,7 @@ adb devices
 Descarga el APK y comprueba su SHA-256 con `sha256sum` o `Get-FileHash` frente a `downloads/SHA256SUMS`. Luego instala:
 
 ```sh
-adb -s IP:PUERTO install -r GlassHome-1.5.0.apk
+adb -s IP:PUERTO install -r GlassHome-1.6.0.apk
 adb -s IP:PUERTO shell pm grant local.glasshome android.permission.READ_TV_LISTINGS
 adb -s IP:PUERTO shell am start -n local.glasshome/.MainActivity
 ```
